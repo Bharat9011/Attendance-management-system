@@ -1,0 +1,185 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="principal.master.cs" Inherits="Attendance_management_system.Principal.principal" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+    .HODHeading {
+        width: 81.70%;
+        height: 60px;
+        padding: 0px 50px;
+        text-align: end;
+        position: absolute;
+        right: 0px;
+        background-color: aquamarine;
+    }
+
+        .HODHeading .p {
+            font-size: 20px;
+            line-height: 50px;
+            margin-right: 10px;
+        }
+
+    .containers {
+        width: 20%;
+        height: 695px;
+        border: 1px solid black;
+        background-color: #343944;
+    }
+
+    a {
+        color: black;
+    }
+
+    ul li ul li a:hover {
+        color: white !important;
+        background-color: #343944;
+    }
+
+    li {
+        cursor: pointer;
+    }
+
+    #contentplaceholder {
+        width: 82%;
+        margin-top: 60px;
+    }
+</style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div style="display: flex; width: 100%;">
+                <div class="containers" style="width: 280px;">
+                    <div class="container text-center bg-danger p-3">
+                        <a href="DashBoard.aspx" style="text-decoration: none;">
+                            <strong><span style="color: white; font-size: larger; letter-spacing: 2px;">DashBoard</span></strong>
+                        </a>
+                    </div>
+                    <div>
+                        <div class="container text-black bg-light my-2">
+                            <ul style="list-style: none;" class="p-2" onclick="show()">
+                                <li>
+                                    <a class="text-decoration-none text-black dropdown-toggle">Department</a>
+                                    <ul id="teachermenu" style="list-style: none; display: none;">
+                                        <li style="width: 100%; margin-top: 10px;" class="li"><a href="CreateDepartment.aspx" style="width: 150px; padding: 7px 5px; color: black;" class="text-decoration-none">Create Department</a></li>
+                                        <li style="width: 100%; margin-top: 12px;" class="li"><a style="width: 150px; padding: 7px 5px; color: black;" href="DepartmentList.aspx" class="text-decoration-none">Department List</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <script>
+                                function show() {
+                                    var check = document.getElementById('teachermenu').style.display;
+                                    if (check == "block") {
+                                        document.getElementById('teachermenu').style.display = "none";
+                                    } else {
+                                        document.getElementById('teachermenu').style.display = "block";
+                                    }
+                                }
+                            </script>
+                        </div>
+
+                        <div class="container text-black bg-light my-2">
+                            <ul class="my-2 p-2" onclick="showcourse()" style="list-style: none;">
+                                <li>
+                                    <a class="text-decoration-none text-black dropdown-toggle" href="#">HOD Account</a>
+                                    <ul id="cMenu" style="list-style: none; display: none;">
+                                        <li style="padding: 7px 5px"><a href="HODLoginCreate.aspx" class="text-decoration-none">Create HOD Loging</a></li>
+                                        <li style="padding: 7px 5px"><a href="ShowDeatail.aspx" class="text-decoration-none">HOD Loging Deatail</a></li>
+                                        <li style="padding: 7px 5px"><a href="HODAllocation.aspx" class="text-decoration-none">HOD Allocation</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <script>
+                                function showcourse() {
+                                    var checks = document.getElementById('cMenu').style.display;
+
+                                    if (checks == "block") {
+                                        document.getElementById('cMenu').style.display = "none";
+                                    } else {
+                                        document.getElementById('cMenu').style.display = "block";
+                                    }
+                                }
+                            </script>
+                        </div>
+
+                        <div class="container text-black bg-light my-3 p-1">
+                            <span style="cursor: pointer;" class="p-3 my-2"><a class="text-decoration-none text-black" href="AllStudentList.aspx">Student List</a></span>
+                        </div>
+
+                        <div class="container text-black bg-light my-3 p-1">
+                            <span style="cursor: pointer;" class="p-3 my-2"><a class="text-decoration-none text-black" href="ShowAttendance.aspx">Show Attendance</a></span>
+                        </div>
+
+                        <div class="container text-black bg-light my-3 p-1">
+                            <span style="cursor: pointer;" class="p-3 my-2"><a class="text-decoration-none text-black" href="Permission.aspx">Permission</span>
+                        </div>
+
+                        <div class="container text-black bg-light my-2">
+                            <ul class="my-2 p-2" onclick="showcourse2()" style="list-style: none;">
+                                <li>
+                                    <a class="text-decoration-none text-black dropdown-toggle" href="#">Notification</a>
+                                    <ul id="NMenu" style="list-style: none; display: none;">
+                                        <li style="padding: 7px 5px"><a href="CreateNotification.aspx" class="text-decoration-none">Create Notification</a></li>
+                                        <li style="padding: 7px 5px"><a href="ShowNotification.aspx" class="text-decoration-none">Show All Notification</a></li>
+                                        <li style="padding: 7px 5px"><a href="ActionOnNotification.aspx" class="text-decoration-none">Operation On Notification</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <script>
+                                function showcourse2() {
+                                    var checks = document.getElementById('NMenu').style.display;
+
+                                    if (checks == "block") {
+                                        document.getElementById('NMenu').style.display = "none";
+                                    } else {
+                                        document.getElementById('NMenu').style.display = "block";
+                                    }
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="HODHeading" style="display: flex;" runat="server" id="Header">
+
+                    <div style="width: 50%; height: inherit; display: flex; justify-content: center; align-content: center;">
+                        <div style="width: 25%; height: 100%;">
+                            <a href="https://mohotasci.edu.in">
+                                <img src="../Image/logo.png" class="img-fluid" style="width: 45px; height: 45px; margin-top: 10px;" alt="logo not found">
+                            </a>
+                        </div>
+
+                        <div style="width: 75%; height: 100%; margin-left: 10px;">
+                            <a href="https://mohotasci.edu.in">
+                                <p style="line-height: 60px; float: left; margin-left: 0px; font-size: 20px;"><strong>Shri MathuraDas mohota college of sciense</strong></p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div style="width: 50%; height: inherit; float: left; line-height: 60px;">
+                        <strong>
+                            <asp:Label runat="server" class="p" Text="hello" ID="Hname"></asp:Label></strong>
+                        <button type="button" style="border: none; background-color: transparent;" class="mb-1 fs-2 lh-1"><i class="fa-solid fa-right-from-bracket mb-2"></i></button>
+                    </div>
+
+                </div>
+
+                <div id="contentplaceholder" style="padding: 11px; background:rgba(242,244,244,255); margin-top: 61px; overflow:auto;">
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+                    </div>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>
