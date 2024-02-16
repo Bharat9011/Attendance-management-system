@@ -8,7 +8,7 @@
         <legend class="w-auto">Department HOD allocation</legend>
         <div class="form-group mt-2">
             <label for="exampleFormControlSelect1">Select Department</label>
-            <asp:DropDownList class="form-control" ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="DepartmentName" DataValueField="DepartmentName">
+            <asp:DropDownList class="form-control" ID="DepartmentName" runat="server" DataSourceID="SqlDataSource1" DataTextField="DepartmentName" DataValueField="DepartmentName">
                 <asp:ListItem>Select Course</asp:ListItem>
                 <asp:ListItem>Course 1</asp:ListItem>
                 <asp:ListItem>Course 2</asp:ListItem>
@@ -18,7 +18,7 @@
 
         <div class="form-group mt-2">
             <label for="exampleformcontrolselect1">Select HOD Name</label>
-            <asp:DropDownList CssClass="form-control" ID="DropDownList3" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
+            <asp:DropDownList CssClass="form-control" ID="HODName" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="name">
                 <asp:ListItem>Select Teacher</asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:AMSConnectionString2 %>" SelectCommand="SELECT [name] FROM [TeacherstaffDetail]"></asp:SqlDataSource>

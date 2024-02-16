@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="principal.master.cs" Inherits="Attendance_management_system.Principal.principal" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="principal.master.cs" Inherits="Attendance_management_system.Principal.principal" %>
 
 <!DOCTYPE html>
 
@@ -11,47 +11,46 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style>
-    .HODHeading {
-        width: 81.70%;
-        height: 60px;
-        padding: 0px 50px;
-        text-align: end;
-        position: absolute;
-        right: 0px;
-        background-color: aquamarine;
-    }
-
-        .HODHeading .p {
-            font-size: 20px;
-            line-height: 50px;
-            margin-right: 10px;
+        .HODHeading {
+            width: 81.70%;
+            height: 60px;
+            padding: 0px 50px;
+            text-align: end;
+            position: absolute;
+            right: 0px;
+            background-color: aquamarine;
         }
 
-    .containers {
-        width: 20%;
-        height: 695px;
-        border: 1px solid black;
-        background-color: #343944;
-    }
+            .HODHeading .p {
+                font-size: 20px;
+                line-height: 50px;
+                margin-right: 10px;
+            }
 
-    a {
-        color: black;
-    }
+        .containers {
+            width: 20%;
+            height: 695px;
+            border: 1px solid black;
+            background-color: #343944;
+        }
 
-    ul li ul li a:hover {
-        color: white !important;
-        background-color: #343944;
-    }
+        a {
+            color: black;
+        }
 
-    li {
-        cursor: pointer;
-    }
+        ul li ul li a:hover {
+            color: white !important;
+            background-color: #343944;
+        }
 
-    #contentplaceholder {
-        width: 82%;
-        margin-top: 60px;
-    }
-</style>
+        li {
+            cursor: pointer;
+        }
+
+        #contentplaceholder {
+            width: 82%;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -92,7 +91,7 @@
                                     <a class="text-decoration-none text-black dropdown-toggle" href="#">HOD Account</a>
                                     <ul id="cMenu" style="list-style: none; display: none;">
                                         <li style="padding: 7px 5px"><a href="HODLoginCreate.aspx" class="text-decoration-none">Create HOD Loging</a></li>
-                                        <li style="padding: 7px 5px"><a href="ShowDeatail.aspx" class="text-decoration-none">HOD Loging Deatail</a></li>
+                                        <li style="padding: 7px 5px"><a href="ShowDeatail.aspx" class="text-decoration-none">HOD Deatail</a></li>
                                         <li style="padding: 7px 5px"><a href="HODAllocation.aspx" class="text-decoration-none">HOD Allocation</a></li>
                                     </ul>
                                 </li>
@@ -119,7 +118,7 @@
                         </div>
 
                         <div class="container text-black bg-light my-3 p-1">
-                            <span style="cursor: pointer;" class="p-3 my-2"><a class="text-decoration-none text-black" href="Permission.aspx">Permission</span>
+                            <span style="cursor: pointer;" class="p-3 my-2"><a class="text-decoration-none text-black" href="Permission.aspx">Permission</a></span>
                         </div>
 
                         <div class="container text-black bg-light my-2">
@@ -172,13 +171,11 @@
 
                 </div>
 
-                <div id="contentplaceholder" style="padding: 11px; background:rgba(242,244,244,255); margin-top: 61px; overflow:auto;">
-
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder>
-                    </div>
+                <div id="contentplaceholder" style="padding: 11px; background: rgba(242,244,244,255); margin-top: 61px; overflow: auto;">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
             </div>
-
         </div>
     </form>
 </body>

@@ -1,11 +1,5 @@
 ﻿using Attendance_management_system.DataBase;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Attendance_management_system.Principal
 {
@@ -21,11 +15,19 @@ namespace Attendance_management_system.Principal
 
             Database DB = new Database();
 
-            int result = DB.getCourseID("DepartmentDetail", "DepartmentName", DropDownList1.Text);
+            int department = DB.getCourseID("DepartmentDetail", "DepartmentName", DepartmentName.Text);
 
-            int Role = DB.getCourseID("TeacherstaffDetail", "name", "bharat sanjay chaudhari");
+            int Role = DB.getCourseID("TeacherstaffDetail", "name", HODName.Text);
 
-            Response.Write("<script>console.log('" + result + "')</script>");
+            int result = DB.insertDepartment(department, Role);
+            if (result == -1) {
+                Response.Write("<script>alert('Something want wrong')</script>");
+            } else if (result == 1)
+            {
+                Response.Write("<script>alert('Successfully Allocation')</script>");
+            } else if(result == 0) {
+                Response.Write("<script>alert('This is allready HOD')</script>");
+            }
         }
 
     }
