@@ -19,13 +19,20 @@ namespace Attendance_management_system.Principal
 
             int Role = DB.getCourseID("TeacherstaffDetail", "name", HODName.Text);
 
+            //int result = DB.insertDepartment(department, Role);
+
             int result = DB.insertDepartment(department, Role);
-            if (result == -1) {
+
+            if (result == -1)
+            {
                 Response.Write("<script>alert('Something want wrong')</script>");
-            } else if (result == 1)
+            }
+            else if (result == 1)
             {
                 Response.Write("<script>alert('Successfully Allocation')</script>");
-            } else if(result == 0) {
+            }
+            else if (result == 0)
+            {
                 Response.Write("<script>alert('This is allready HOD')</script>");
             }
         }

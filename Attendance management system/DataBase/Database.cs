@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Web.Security;
 using System.Web.UI.WebControls;
 
 namespace Attendance_management_system.DataBase
@@ -47,6 +48,40 @@ namespace Attendance_management_system.DataBase
         public int CreateHODLogin(string name, string email, string password, string role1, string role2, string departmentName)
         {
             int result = -1;
+
+            int i = -1;
+
+            int departmentID = getCourseID("DepartmentDetail","DepartmentName",departmentName);
+            
+            try
+            {
+                string checksql = "select DepartmentName from DepartmentAllocation where DepartmentName=" + departmentID;
+                sqlr = cmd.ExecuteReader();
+                while (sqlr.Read())
+                {
+                    i++;
+                }
+
+                if (i >= 0)
+                {
+                    result = 0;
+                }
+
+                if (i == -1)
+                {
+                    string sqlInsert = "insert into DepartmentAllocation (DepartmentName,HODName) values ('" + departmentID + "','" + RoleID + "')";
+                    cmd.CommandText = sqlInsert;
+                    cmd.ExecuteNonQuery();
+                    result = 1;
+                }
+
+
+            }
+            catch (Exception)
+            {
+                result = -1;
+            }
+            //return result;
 
             try
             {
@@ -160,16 +195,32 @@ namespace Attendance_management_system.DataBase
         public int insertDepartment(int departmentID,int RoleID)
         {
             int result = -1;
+            int i = -1;
             try
             {
-                string sqlInsert = "insert into DepartmentAllocation (DepartmentName,HODName) values ('" + departmentID + "','" + RoleID + "')";
-                cmd.CommandText = sqlInsert;
-                cmd.ExecuteNonQuery();
+                string checksql = "select DepartmentName,HODName from DepartmentAllocation where DepartmentName=" + departmentID + " and HODName=" + RoleID;
+                sqlr = cmd.ExecuteReader();
+                while (sqlr.Read())
+                {
+                    i++;
+                }
+
+                if (i >= 0) {
+                    result = 0;
+                }
+
+                if(i == -1) {
+                    string sqlInsert = "insert into DepartmentAllocation (DepartmentName,HODName) values ('" + departmentID + "','" + RoleID + "')";
+                    cmd.CommandText = sqlInsert;
+                    cmd.ExecuteNonQuery();
+                    result = 1;
+                }
+
 
             } catch (Exception) {
                 result = -1;
             }
-            return 0;
+            return result;
         }
 
     }

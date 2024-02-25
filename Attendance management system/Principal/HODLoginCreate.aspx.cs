@@ -13,8 +13,25 @@ namespace Attendance_management_system.Principal
         protected void createLogin(object sender,EventArgs e)
         {
             Database db = new Database();
+
             int result = db.CreateHODLogin(NameTeacher.Text, EmailTeacher.Text, PasswordTeacher.Text, Role1.Text, Role2.Text, DName.Text);
+
+            //int result = DB.insertDepartment(department, Role);
+
             if (result == -1)
+            {
+                Response.Write("<script>alert('Something want wrong')</script>");
+            }
+            else if (result == 1)
+            {
+                Response.Write("<script>alert('Successfully Allocation')</script>");
+            }
+            else if (result == 0)
+            {
+                Response.Write("<script>alert('This is allready HOD')</script>");
+            }
+
+            /*if (result == -1)
             {
                 string script = "alert('Something want wrong n plz try again later');";
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
@@ -35,7 +52,7 @@ namespace Attendance_management_system.Principal
                 PasswordTeacher.Text = "";
                 Role1.Text = "";
                 Role2.Text = "";
-            }
+            }*/
         }
     }
 }
