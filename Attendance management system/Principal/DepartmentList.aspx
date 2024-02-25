@@ -10,9 +10,23 @@
         <Columns>
             <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
             <asp:BoundField DataField="DepartmentName" HeaderText="DepartmentName" SortExpression="DepartmentName" />
-            <asp:CommandField HeaderText="Edit" ShowEditButton="True" ButtonType="Button" ControlStyle-CssClass="btn btn-success border" />
-            <asp:CommandField HeaderText="View" ShowSelectButton="True" ButtonType="Button" ControlStyle-CssClass="btn btn-info border"/>
-            <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ButtonType="Button" ControlStyle-CssClass="btn btn-danger border"/>
+
+            <asp:TemplateField HeaderText="Edit">
+                <ItemTemplate>
+                    <asp:Button ID="edit" runat="server" CssClass="btn btn-info text-white" Text="Edit" />
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="View">
+                <ItemTemplate>
+                    <asp:Button ID="view" runat="server" CssClass="btn btn-success text-white" Text="View" />
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Delete">
+                <ItemTemplate>
+                    <asp:Button ID="delete" runat="server" CssClass="btn btn-danger text-white" Text="Delete" />
+                </ItemTemplate>
+            </asp:TemplateField>
+
         </Columns>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AMSConnectionString2 %>" SelectCommand="SELECT * FROM [DepartmentDetail]" ProviderName="<%$ ConnectionStrings:AMSConnectionString2.ProviderName %>"></asp:SqlDataSource>
