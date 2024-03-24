@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Web.Caching;
 using System.Web.Security;
 using System.Web.UI.WebControls;
 
@@ -32,7 +33,7 @@ namespace Attendance_management_system.DataBase
                 id = int.Parse(sqlr[0].ToString().Trim());
                 type = sqlr[3].ToString().Trim();
             }
-
+            sqlr.Close();
             return (id, type);
         }
 
@@ -41,83 +42,8 @@ namespace Attendance_management_system.DataBase
 
             cmd.CommandText = "insert into DepartmentDetail (DepartmentName) values ('" + name + "')";
             cmd.ExecuteNonQuery();
-
             return 0;
         }
-
-        public int CreateHODLogin(string name, string email, string password, string role1, string role2, string departmentName)
-        {
-            int result = -1;
-
-            int i = -1;
-
-            int departmentID = getCourseID("DepartmentDetail","DepartmentName",departmentName);
-            
-            try
-            {
-                string checksql = "select DepartmentName from DepartmentAllocation where DepartmentName=" + departmentID;
-                sqlr = cmd.ExecuteReader();
-                while (sqlr.Read())
-                {
-                    i++;
-                }
-
-                if (i >= 0)
-                {
-                    result = 0;
-                }
-
-                if (i == -1)
-                {
-                    string sqlInsert = "insert into DepartmentAllocation (DepartmentName,HODName) values ('" + departmentID + "','" + RoleID + "')";
-                    cmd.CommandText = sqlInsert;
-                    cmd.ExecuteNonQuery();
-                    result = 1;
-                }
-
-
-            }
-            catch (Exception)
-            {
-                result = -1;
-            }
-            //return result;
-
-            try
-            {
-                cmd.CommandText = "insert into TeacherstaffDetail (name,email,password,role1,role2,DepatmentName,permission) values ('" + name + "','" + email + "','" + password + "','" + role1 + "','" + role2 + "','" + departmentName + "','True')";
-                cmd.ExecuteNonQuery();
-
-
-                result = 0;
-            } catch {
-                result = -1;
-            }
-
-            return result;
-        }
-
-        public int getCourseID(string TableName, string columeName, string columeValue)
-        {
-            int result = -1;
-
-            try
-            {
-                cmd.CommandText = "select id from " + TableName + " where " + columeName + "='" + columeValue.Trim() + "'";
-                sqlr = cmd.ExecuteReader();
-                while (sqlr.Read())
-                {
-                    result = Convert.ToInt32(sqlr["id"]);
-                }
-                sqlr.Close();
-            }
-            catch (Exception ex)
-            {
-                return Convert.ToInt16(ex) ;
-            }
-            return result;
-        }
-
         public int Execute_Sql(String sql)
         {
             int re = -1;
@@ -132,7 +58,7 @@ namespace Attendance_management_system.DataBase
                 }
                 return re;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 re = -1;
                 return re;
@@ -141,32 +67,18 @@ namespace Attendance_management_system.DataBase
 
         public int selectQuary(string sqlS)
         {
-            try
+            int i = 0;
+            if (sqlS != String.Empty)
             {
-                int i = 0;
-                if(sqlS != String.Empty)
+                cmd.CommandText = sqlS;
+                sqlr = cmd.ExecuteReader();
+                while (sqlr.Read())
                 {
-                    cmd.CommandText = sqlS;
-                    sqlr = cmd.ExecuteReader() ;
-                    while (sqlr.Read())
-                    {
-                        i++;
-                    }
-                    sqlr.Close();
-
-                    if (i > 0)
-                    {
-                        return -1;
-                    } else if (i == 0)
-                    {
-                        return 1;
-                    }
+                    i++;
                 }
-            } catch (Exception ex)
-            {
-                return -1;
+                sqlr.Close();
             }
-            return -1;
+            return i;
         }
 
         public String get_value(string coloum_name, string table_name, int Condition)
@@ -185,42 +97,27 @@ namespace Attendance_management_system.DataBase
                 sqlr.Close();
                 return re;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //re = -1;
                 return re;
             }
         }
-        
-        public int insertDepartment(int departmentID,int RoleID)
+
+        //to ensure the data value allready exit or not
+        public int checkexit(String tableName, string colume, String condition)
         {
-            int result = -1;
-            int i = -1;
-            try
+            int i = 0;
+
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select " + colume + " from " + tableName + " where " + condition;
+            sqlr = cmd.ExecuteReader();
+            while (sqlr.Read())
             {
-                string checksql = "select DepartmentName,HODName from DepartmentAllocation where DepartmentName=" + departmentID + " and HODName=" + RoleID;
-                sqlr = cmd.ExecuteReader();
-                while (sqlr.Read())
-                {
-                    i++;
-                }
-
-                if (i >= 0) {
-                    result = 0;
-                }
-
-                if(i == -1) {
-                    string sqlInsert = "insert into DepartmentAllocation (DepartmentName,HODName) values ('" + departmentID + "','" + RoleID + "')";
-                    cmd.CommandText = sqlInsert;
-                    cmd.ExecuteNonQuery();
-                    result = 1;
-                }
-
-
-            } catch (Exception) {
-                result = -1;
+                i++;
             }
-            return result;
+            sqlr.Close();
+            return i;
         }
 
     }

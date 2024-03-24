@@ -12,47 +12,101 @@ namespace Attendance_management_system.Principal
 
         protected void createLogin(object sender,EventArgs e)
         {
-            Database db = new Database();
+            
+            string name = NameTeacher.Text;
+            string email = EmailTeacher.Text;
+            string password = PasswordTeacher.Text;
+            string role1 = Role1.SelectedItem.Text.Trim();
+            string role2 = Role2.SelectedItem.Text.Trim();
+            string department = DName.SelectedItem.Text.Trim();
 
-            int result = db.CreateHODLogin(NameTeacher.Text, EmailTeacher.Text, PasswordTeacher.Text, Role1.Text, Role2.Text, DName.Text);
-
-            //int result = DB.insertDepartment(department, Role);
-
-            if (result == -1)
+            if (!string.IsNullOrEmpty(name))
             {
-                Response.Write("<script>alert('Something want wrong')</script>");
+                if (!string.IsNullOrEmpty(email))
+                {
+                    if (!string.IsNullOrEmpty(password))
+                    {
+                        if (!string.IsNullOrEmpty(role1))
+                        {
+                            if (!string.IsNullOrEmpty(role2))
+                            {
+                                if (!string.IsNullOrEmpty(department)){
+
+                                     Database database = new Database();
+                                    int deresult = database.selectQuary("select DepatmentName from TeacherstaffDetail where DepatmentName='"+department+"'");
+                                    if (deresult == 0)
+                                    {
+                                        int result = database.checkexit("TeacherstaffDetail", "email", "email='" + email + "'");
+                                        if (result == 0)
+                                        {
+                                            string sql = "insert into TeacherstaffDetail ([name],[email],[password],[role1],[role2],[DepatmentName],[permission]) values"
+                                                + "('" + name + "','" + email + "','" + password + "','" + role1 + "','" + role2 + "','" + department + "','YES')";
+                                            Database database1 = new Database();
+                                            int resultex = database.Execute_Sql(sql);
+                                            if (resultex == 1)
+                                            {
+                                                MessageBox.Visible = true;
+                                                massage.Style.Add("color", "#87A330");
+                                                massage.Text = "Data Save";
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Visible = true;
+                                                massage.Style.Add("color", "#FF0000");
+                                                massage.Text = "SomeThing wants wrong";
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Visible = true;
+                                            massage.Style.Add("color", "#FF0000");
+                                            massage.Text = "Email is not avaliable";
+                                        }
+                                    } else
+                                    {
+                                        MessageBox.Visible = true;
+                                        massage.Style.Add("color", "#FF0000");
+                                        massage.Text = "department is allready allocated";
+                                    }
+
+                                } else
+                                {
+                                    MessageBox.Visible = true;
+                                    massage.Style.Add("color", "#FF0000");
+                                    massage.Text = "Department is Empty";
+                                }
+                            } else
+                            {
+                                MessageBox.Visible = true;
+                                massage.Style.Add("color", "#FF0000");
+                                massage.Text = "Role 2 is Empty";
+                            }
+                        } else
+                        {
+                            MessageBox.Visible = true;
+                            massage.Style.Add("color", "#FF0000");
+                            massage.Text = "Role is Empty";
+                        }
+                    } else
+                    {
+                        MessageBox.Visible = true;
+                        massage.Style.Add("color", "#FF0000");
+                        massage.Text = "Password is Empty";
+                    }
+                } else
+                {
+                    MessageBox.Visible = true;
+                    massage.Style.Add("color", "#FF0000");
+                    massage.Text = "Email is Empty";
+                }
+
+            } else
+            {
+                MessageBox.Visible = true;
+                massage.Style.Add("color", "#FF0000");
+                massage.Text = "Name is Empty";
             }
-            else if (result == 1)
-            {
-                Response.Write("<script>alert('Successfully Allocation')</script>");
-            }
-            else if (result == 0)
-            {
-                Response.Write("<script>alert('This is allready HOD')</script>");
-            }
 
-            /*if (result == -1)
-            {
-                string script = "alert('Something want wrong n plz try again later');";
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
-
-                NameTeacher.Text = "";
-                EmailTeacher.Text = "";
-                PasswordTeacher.Text = "";
-                Role1.Text = "";
-                Role2.Text = "";
-            }
-            else if (result == 0)
-            {
-                string script = "alert('Department sccessfully create');";
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
-                
-                NameTeacher.Text = "";
-                EmailTeacher.Text = "";
-                PasswordTeacher.Text = "";
-                Role1.Text = "";
-                Role2.Text = "";
-            }*/
         }
     }
 }

@@ -1,10 +1,10 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="principal.master.cs" Inherits="Attendance_management_system.Principal.principal" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="HOD.master.cs" Inherits="Attendance_management_system.HOD.HOD" %>
 
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
-    <title>Principal DashBoard</title>
+    <title>HOD DashBoard</title>
     <link href="../Content/bootstrap.css" rel="stylesheet" />
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -21,7 +21,7 @@
             background-color: aquamarine;
         }
 
-            .HODHeading .p {
+        .HODHeading .p {
                 font-size: 20px;
                 line-height: 50px;
                 margin-right: 10px;
@@ -56,6 +56,7 @@
     <form id="form1" runat="server">
         <div>
             <div style="display: flex; width: 100%;">
+
                 <div class="containers" style="width: 280px;">
                     <div class="container text-center bg-danger p-3">
                         <a href="DashBoard.aspx" style="text-decoration: none;">
@@ -68,8 +69,8 @@
                                 <li>
                                     <a class="text-decoration-none text-black dropdown-toggle">Department</a>
                                     <ul id="teachermenu" style="list-style: none; display: none;">
-                                        <li style="width: 100%; margin-top: 10px;" class="li"><a href="CreateDepartment.aspx" style="width: 150px; padding: 7px 5px; color: black;" class="text-decoration-none">Create Department</a></li>
-                                        <li style="width: 100%; margin-top: 12px;" class="li"><a style="width: 150px; padding: 7px 5px; color: black;" href="DepartmentList.aspx" class="text-decoration-none">Department List</a></li>
+                                        <li style="width: 100%; margin-top: 10px;" class="li"><a href="CreateCourse.aspx" style="width: 150px; padding: 7px 5px; color: black;" class="text-decoration-none">Create Course</a></li>
+                                        <li style="width: 100%; margin-top: 12px;" class="li"><a style="width: 150px; padding: 7px 5px; color: black;" href="CourseList.aspx" class="text-decoration-none">Course List</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -88,10 +89,10 @@
                         <div class="container text-black bg-light my-2">
                             <ul class="my-2 p-2" onclick="showcourse()" style="list-style: none;">
                                 <li>
-                                    <a class="text-decoration-none text-black dropdown-toggle" href="#">HOD Account</a>
+                                    <a class="text-decoration-none text-black dropdown-toggle">Teacher Account</a>
                                     <ul id="cMenu" style="list-style: none; display: none;">
-                                        <li style="padding: 7px 5px"><a href="HODLoginCreate.aspx" class="text-decoration-none">Create HOD Loging</a></li>
-                                        <li style="padding: 7px 5px"><a href="ShowDeatail.aspx" class="text-decoration-none">HOD Deatail</a></li>
+                                        <li style="padding: 7px 5px"><a href="TeacherAccountCreate.aspx" class="text-decoration-none">Create Teacher Account</a></li>
+                                        <li style="padding: 7px 5px"><a href="ShowTeacherDeatail.aspx" class="text-decoration-none">Teacher Deatail</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -109,25 +110,25 @@
                         </div>
 
                         <div class="container text-black bg-light my-3 p-1">
-                            <span style="cursor: pointer;" class="p-3 my-2"><a class="text-decoration-none text-black" href="AllStudentList.aspx">Student List</a></span>
+                            <span style="cursor: pointer;" class="p-3 my-2"><a class="text-decoration-none text-black" href="StudentList.aspx">Student List</a></span>
                         </div>
 
                         <div class="container text-black bg-light my-3 p-1">
-                            <span style="cursor: pointer;" class="p-3 my-2"><a class="text-decoration-none text-black" href="ShowAttendance.aspx">Show Attendance</a></span>
+                            <span style="cursor: pointer;" class="p-3 my-2"><a class="text-decoration-none text-black" href="ShowStudentAttendance.aspx">Show Attendance</a></span>
                         </div>
 
                         <div class="container text-black bg-light my-3 p-1">
-                            <span style="cursor: pointer;" class="p-3 my-2"><a class="text-decoration-none text-black" href="Permission.aspx">Permission</a></span>
+                            <span style="cursor: pointer;" class="p-3 my-2"><a class="text-decoration-none text-black" href="TeacherPermission.aspx">Permission</a></span>
                         </div>
 
                         <div class="container text-black bg-light my-2">
                             <ul class="my-2 p-2" onclick="showcourse2()" style="list-style: none;">
                                 <li>
-                                    <a class="text-decoration-none text-black dropdown-toggle" href="#">Notification</a>
+                                    <a class="text-decoration-none text-black dropdown-toggle">Notification</a>
                                     <ul id="NMenu" style="list-style: none; display: none;">
                                         <li style="padding: 7px 5px"><a href="CreateNotification.aspx" class="text-decoration-none">Create Notification</a></li>
                                         <li style="padding: 7px 5px"><a href="ShowNotification.aspx" class="text-decoration-none">Show All Notification</a></li>
-                                        <li style="padding: 7px 5px"><a href="ActionOnNotification.aspx" class="text-decoration-none">Operation On Notification</a></li>
+                                        <li style="padding: 7px 5px"><a href="OperationNotification.aspx" class="text-decoration-none">Operation On Notification</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -147,7 +148,6 @@
                 </div>
 
                 <div class="HODHeading" style="display: flex;" runat="server" id="Header">
-
                     <div style="width: 50%; height: inherit; display: flex; justify-content: center; align-content: center;">
                         <div style="width: 25%; height: 100%;">
                             <a href="https://mohotasci.edu.in">
@@ -167,13 +167,12 @@
                             <asp:Label runat="server" class="p" Text="hello" ID="Hname"></asp:Label></strong>
                         <button type="button" style="border: none; background-color: transparent;" class="mb-1 fs-2 lh-1"><i class="fa-solid fa-right-from-bracket mb-2"></i></button>
                     </div>
-
                 </div>
 
                 <div id="contentplaceholder" style="padding: 11px; background: rgba(242,244,244,255); margin-top: 61px; overflow: auto;">
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                    </asp:ContentPlaceHolder>
-                </div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+                    </div>
             </div>
         </div>
     </form>

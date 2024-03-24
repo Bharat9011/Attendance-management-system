@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal/principal.Master" AutoEventWireup="true" CodeBehind="DashBoard.aspx.cs" Inherits="Attendance_management_system.Principal.DashBoard" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HOD/HOD.Master" AutoEventWireup="true" CodeFile="DashBoard.aspx.cs" Inherits="Attendance_management_system.HOD.DashBoard" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../Scripts/chart.min.js"></script>
     <script src="../Scripts/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <section class="container mt-2" style="height: 100px; background-color: white; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
         <div class="row">
             <div class="col-3 border-end d-flex border-primary">
@@ -40,10 +40,11 @@
                 </div>
 
                 <div class="row-1 ps-5 m-auto text-center fs-5">
-                    <span>Total Course</span>
+                    <span>Total Department</span>
                     <br />
                     <span>10000</span>
                 </div>
+
             </div>
 
             <div class="col-3 d-flex">
@@ -82,25 +83,25 @@
 
             <div style="height: 50px; line-height: 50px; font-size: 20px; display: flex;" class="border border-top-0 border-end-0 border-start-0 border-1 border-black ps-3">
                 Notification
-            <div style="position: relative; left: 194px; right: 0; color: white; cursor: pointer;" class="bg-primary ps-2 pe-2">
-                <span class="" style="font-size: 15px; line-height: 50px;">View More</span>
-            </div>
+        <div style="position: relative; left: 194px; right: 0; color: white; cursor: pointer;" class="bg-primary ps-2 pe-2">
+            <span class="" style="font-size: 15px; line-height: 50px;">View More</span>
+        </div>
             </div>
 
             <div class="container mt-3">
 
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong>Success!</strong> Your operation was successful.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
                 </div>
 
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                     <strong>Info:</strong> This is an informational message.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
                 </div>
             </div>
         </div>
@@ -158,63 +159,64 @@
 
     <script>
 
-    const ctx = document.getElementById('PChart');
+        const ctx = document.getElementById('PChart');
 
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            datasets: [{
-                label: 'Total Present',
-                backgroundColor: ["red", "blue", "green", "blue", "red", "blue"],
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
 
-                data: [
-                    { x: '1', y: 1 },
-                    { x: '2', y: 2 },
-                    { x: '3', y: 3 },
-                    { x: '4', y: 4 },
-                    { x: '5', y: 5 },
-                    { x: '6', y: 6 },
-                    { x: '7', y: 7 },
-                    { x: '8', y: 8 },
-                    { x: '9', y: 9 },
-                    { x: '10', y: 10 },
-                    { x: '11', y: 11 },
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+                datasets: [{
+                    label: 'Total Present',
+                    backgroundColor: ["red", "blue", "green", "blue", "red", "blue"],
+
+                    data: [
+                        { x: '1', y: 1 },
+                        { x: '2', y: 2 },
+                        { x: '3', y: 3 },
+                        { x: '4', y: 4 },
+                        { x: '5', y: 5 },
+                        { x: '6', y: 6 },
+                        { x: '7', y: 7 },
+                        { x: '8', y: 8 },
+                        { x: '9', y: 9 },
+                        { x: '10', y: 10 },
+                        { x: '11', y: 11 },
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
-    });
+        });
 
-    const ctx1 = document.getElementById('AChart');
+        const ctx1 = document.getElementById('AChart');
 
-    new Chart(ctx1, {
-        type: 'bar',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: 'Total absent',
-                backgroundColor: ["red", "blue", "green", "blue", "red", "blue"],
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: 'Total absent',
+                    backgroundColor: ["red", "blue", "green", "blue", "red", "blue"],
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
-    });
+        });
 
-    ctx1.canvas.parentNode.style.height = '100px';
+        ctx1.canvas.parentNode.style.height = '100px';
 
     </script>
 

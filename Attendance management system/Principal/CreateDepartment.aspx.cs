@@ -13,17 +13,24 @@ namespace Attendance_management_system.Principal
         protected void Unnamed_Click(object sender, EventArgs e)
         {
             Database database = new Database();
-            int result = database.createDepartment(NameDepartment.Text);
-            if (result == -1)
+
+            int result = database.checkexit("DepartmentDetail", "DepartmentName", "DepartmentName='" + NameDepartment.Text+"'");
+
+            if (result > 0)
             {
-                string script = "alert('Something want wrong n plz try again later');";
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
+                Response.Write("<script>alert('"+ NameDepartment.Text + " is Already exits');</script>");
                 NameDepartment.Text = "";
             } else if (result == 0)
             {
-                string script = "alert('Department sccessfully create');";
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
-                NameDepartment.Text = "";
+                int result2 = database.createDepartment(NameDepartment.Text);
+                if (result2 == 0)
+                {
+                    Response.Write("<script>alert('Department Created');</script>");
+                    NameDepartment.Text = "";
+                } else
+                {
+                    Response.Write("<script>alert('SomeThing Wants wrong');</script>");
+                }
             }
         }
     }
