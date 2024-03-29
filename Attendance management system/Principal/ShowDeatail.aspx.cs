@@ -13,6 +13,10 @@ namespace Attendance_management_system.Principal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["AccountID"] == null)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
             if (!IsPostBack)
             {
                 GridView1.DataSource = SqlDataSource1;
@@ -66,7 +70,7 @@ namespace Attendance_management_system.Principal
             TextBox dwpartment = GridView1.Rows[e.RowIndex].FindControl("TextBox7") as TextBox;
             TextBox permission = GridView1.Rows[e.RowIndex].FindControl("TextBox4") as TextBox;
 
-            string update = "Update TeacherstaffDetail set [name] = '" + name.Text+"',[email] = '"+email.Text + "',[password] = '"+password.Text +"',[role1] = '"+role1.Text + "',[role2] = '"+role2.Text + "',[DepatmentName] = '"+dwpartment.Text + "',[permission] = '"+permission.Text + "' where id=" + id.Text;
+            string update = "Update TeacherstaffDetail set [name] = '" + name.Text + "',[email] = '" + email.Text + "',[password] = '" + password.Text + "',[role1] = '" + role1.Text + "',[role2] = '" + role2.Text + "',[DepatmentName] = '" + dwpartment.Text + "',[permission] = '" + permission.Text + "' where id=" + id.Text;
 
             SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
             sqlConnection.Open();
@@ -79,8 +83,6 @@ namespace Attendance_management_system.Principal
             SqlDataSource1.DataBind();
             GridView1.DataSource = SqlDataSource1;
             GridView1.DataBind();
-
         }
-
     }
 }

@@ -85,6 +85,7 @@
     <Content Include="CSS\LoginPage.css" />
     <Content Include="Default.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="HOD\CourseFrom.aspx" />
     <Content Include="HOD\CourseList.aspx" />
     <Content Include="HOD\CreateCourse.aspx" />
     <Content Include="HOD\CreateNotification.aspx" />
@@ -127,6 +128,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBase\Database.cs" />
+    <Compile Include="HOD\CourseFrom.aspx.cs">
+      <DependentUpon>CourseFrom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HOD\CourseFrom.aspx.designer.cs">
+      <DependentUpon>CourseFrom.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HOD\CourseList.aspx.cs">
       <DependentUpon>CourseList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

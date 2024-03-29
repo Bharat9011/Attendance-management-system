@@ -3,40 +3,30 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="bg-white shadow">
+    <div class="bg-white shadow pb-5 rounded">
         <h1 class="text-center p-2">Create Course</h1>
 
-        <div class="col ps-4 border rounded ms-5 me-5 ">
+        <div class="col ps-4 border rounded ms-5 me-5">
 
             <div class="row col-12 col-lx-12 mt-3">
                 <div class="form-group">
-                    <asp:Label Text="Enter the Course name" runat="server" CssClass="fs-5" />
-                    <asp:TextBox runat="server" TextMode="SingleLine" CssClass="form-control mt-1"/>
+                    <asp:Label Text="Enter the Course name" runat="server" />
+                    <asp:TextBox runat="server" ID="CourseName" TextMode="SingleLine" CssClass="form-control mt-1"/>
                 </div>
             </div>
 
             <div class="row col-12 col-lx-12 mt-3">
                 <div class="form-group">
-                    <asp:Label Text="Select Coordinator" runat="server" CssClass="fs-5" />
-                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
-                        <asp:ListItem>select </asp:ListItem>
-                        <asp:ListItem>1</asp:ListItem>
-                        <asp:ListItem>2</asp:ListItem>
-                        <asp:ListItem>3</asp:ListItem>
-                    </asp:DropDownList>
+                    <asp:Label Text="Select Department" runat="server"  />
+                    
+                    <asp:DropDownList ID="selectDepartment" runat="server" DataSourceID="SqlDataSource2"  CssClass="form-control mt-2" DataTextField="DepartmentName" DataValueField="DepartmentName"></asp:DropDownList>
+                    
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:AMSConnectionString %>" SelectCommand="SELECT [DepartmentName] FROM [DepartmentDetail]"></asp:SqlDataSource>
+                    
                 </div>
             </div>
 
-            <div class="row col-12 col-lx-12 mt-3">
-                <div class="form-group">
-                    <asp:Label Text="Select Department" runat="server" CssClass="fs-5" />
-                    <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control" DataSourceID="SqlDataSource1" DataTextField="DepartmentName" DataValueField="DepartmentName">
-                        <asp:ListItem>select</asp:ListItem>
-                    </asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;Encrypt=True;" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [DepartmentName] FROM [DepartmentDetail]"></asp:SqlDataSource>
-                </div>
-            </div>
-
+            <asp:Button runat="server" Text="Button" OnClick="Unnamed6_Click" CssClass="btn btn-info mt-3 mb-3" />
 
 
         </div>

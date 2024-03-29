@@ -7,13 +7,15 @@ namespace Attendance_management_system.Principal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["AccountID"] == null)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
         }
 
-        protected void createLogin(object sender,EventArgs e)
+        protected void createLogin(object sender, EventArgs e)
         {
-            
-            string name = NameTeacher.Text;
+            /*string name = NameTeacher.Text;
             string email = EmailTeacher.Text;
             string password = PasswordTeacher.Text;
             string role1 = Role1.SelectedItem.Text.Trim();
@@ -30,10 +32,11 @@ namespace Attendance_management_system.Principal
                         {
                             if (!string.IsNullOrEmpty(role2))
                             {
-                                if (!string.IsNullOrEmpty(department)){
+                                if (!string.IsNullOrEmpty(department))
+                                {
 
-                                     Database database = new Database();
-                                    int deresult = database.selectQuary("select DepatmentName from TeacherstaffDetail where DepatmentName='"+department+"'");
+                                    Database database = new Database();
+                                    int deresult = database.selectQuary("select DepatmentName from TeacherstaffDetail where DepatmentName='" + department + "'");
                                     if (deresult == 0)
                                     {
                                         int result = database.checkexit("TeacherstaffDetail", "email", "email='" + email + "'");
@@ -62,51 +65,58 @@ namespace Attendance_management_system.Principal
                                             massage.Style.Add("color", "#FF0000");
                                             massage.Text = "Email is not avaliable";
                                         }
-                                    } else
+                                    }
+                                    else
                                     {
                                         MessageBox.Visible = true;
                                         massage.Style.Add("color", "#FF0000");
                                         massage.Text = "department is allready allocated";
                                     }
 
-                                } else
+                                }
+                                else
                                 {
                                     MessageBox.Visible = true;
                                     massage.Style.Add("color", "#FF0000");
                                     massage.Text = "Department is Empty";
                                 }
-                            } else
+                            }
+                            else
                             {
                                 MessageBox.Visible = true;
                                 massage.Style.Add("color", "#FF0000");
                                 massage.Text = "Role 2 is Empty";
                             }
-                        } else
+                        }
+                        else
                         {
                             MessageBox.Visible = true;
                             massage.Style.Add("color", "#FF0000");
                             massage.Text = "Role is Empty";
                         }
-                    } else
+                    }
+                    else
                     {
                         MessageBox.Visible = true;
                         massage.Style.Add("color", "#FF0000");
                         massage.Text = "Password is Empty";
                     }
-                } else
+                }
+                else
                 {
                     MessageBox.Visible = true;
                     massage.Style.Add("color", "#FF0000");
                     massage.Text = "Email is Empty";
                 }
 
-            } else
+            }
+            else
             {
                 MessageBox.Visible = true;
                 massage.Style.Add("color", "#FF0000");
                 massage.Text = "Name is Empty";
             }
-
+        }*/
         }
     }
 }

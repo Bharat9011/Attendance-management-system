@@ -54,7 +54,6 @@ namespace Attendance_management_system.DataBase
                     cmd.CommandText = sql;
                     cmd.ExecuteNonQuery();
                     re = 1;
-                    
                 }
                 return re;
             }
@@ -65,7 +64,7 @@ namespace Attendance_management_system.DataBase
             }
         }
 
-        public int selectQuary(string sqlS)
+/*        public int selectQuary(string sqlS)
         {
             int i = 0;
             if (sqlS != String.Empty)
@@ -79,7 +78,7 @@ namespace Attendance_management_system.DataBase
                 sqlr.Close();
             }
             return i;
-        }
+        }*/
 
         public String get_value(string coloum_name, string table_name, int Condition)
         {

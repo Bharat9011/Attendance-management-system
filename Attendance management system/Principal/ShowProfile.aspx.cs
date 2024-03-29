@@ -13,7 +13,13 @@ namespace Attendance_management_system.Principal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetInfoProfile();
+            if (Session["AccountID"] == null)
+            {
+                Response.Redirect("~/Default.aspx");
+            } else
+            {
+                GetInfoProfile();
+            }
         }
 
         private void GetInfoProfile()

@@ -12,6 +12,10 @@ namespace Attendance_management_system.Principal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["AccountID"] == null)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
             if (!IsPostBack)
             {
                 GridView3.DataSource = SqlDataSource1;
@@ -64,9 +68,9 @@ namespace Attendance_management_system.Principal
             TextBox SeesionYear = GridView3.Rows[e.RowIndex].FindControl("TextBox7") as TextBox;
 
             string update = "UPDATE [dbo].[StudentDetails] SET"
-                +" [StudentName] = '"+name.Text+"',[StudentEmail] = '"+email.Text+"',[StudentContactNumber] = '"+Contact.Text+"',"
-                +"[StudentDepartment] = '"+Department.Text+"',[StudentCourse] = '"+Course.Text+"',[StudentClass] = '"+Class.Text+"',"
-                +"[StudentSeesionYear] = '"+ SeesionYear.Text + "' WHERE id="+id.Text;
+                + " [StudentName] = '" + name.Text + "',[StudentEmail] = '" + email.Text + "',[StudentContactNumber] = '" + Contact.Text + "',"
+                + "[StudentDepartment] = '" + Department.Text + "',[StudentCourse] = '" + Course.Text + "',[StudentClass] = '" + Class.Text + "',"
+                + "[StudentSeesionYear] = '" + SeesionYear.Text + "' WHERE id=" + id.Text;
 
             SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
             sqlConnection.Open();

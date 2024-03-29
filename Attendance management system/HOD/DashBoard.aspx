@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HOD/HOD.Master" AutoEventWireup="true" CodeFile="DashBoard.aspx.cs" Inherits="Attendance_management_system.HOD.DashBoard" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../Scripts/chart.min.js"></script>
     <script src="../Scripts/chart.js"></script>
@@ -74,7 +75,6 @@
             <div id="Absent" class="mt-3 border p-2 border-primary-subtle" style="width: 400px; height: 210px;">
                 <canvas id="AChart"></canvas>
             </div>
-
         </div>
 
         <!-- Notification -->
@@ -108,48 +108,48 @@
 
         <div class="ms-5 mt-5">
             <div style="display: flex;">
-                <a class="text-decoration-none text-black" href="CreateDepartment.aspx">
+                <a class="text-decoration-none text-black" href="CreateCourse.aspx">
                     <div style="width: 150px; height: 150px; padding-top: 40px;" class="border border-1 border-primary bg-white rounded">
                         <div class="ms-5 me-5 bg-black p-2 rounded" style="text-align: center;">
                             <span><i class="fa-solid fa-plus" style="color: #ffffff;"></i></span>
                         </div>
                         <div class="mt-3 text-center">
-                            Add Department
+                            Add Course
                         </div>
 
                     </div>
                 </a>
-                <a class="text-decoration-none text-black" style="cursor: pointer;" href="CreateCourse.aspx">
+                <a class="text-decoration-none text-black" style="cursor: pointer;" href="TeacherAccountCreate.aspx">
                     <div style="width: 150px; height: 150px; padding-top: 40px;" class="border border-1 border-primary bg-white rounded ms-3">
                         <div class="ms-5 me-5 bg-black p-2 rounded" style="text-align: center;">
-                            <span><i class="fa-solid fa-chalkboard-user" style="color: #ffffff;"></i></i></span>
+                            <span><i class="fa-solid fa-chalkboard-user" style="color: #ffffff;"></i></span>
                         </div>
                         <div class="mt-3 text-center">
-                            Create HOD id
+                            Create Teacher ID
                         </div>
                     </div>
                 </a>
             </div>
 
             <div style="display: flex;" class="mt-3">
-                <a class="text-decoration-none text-black" href="showTeacherDeatil.aspx">
+                <a class="text-decoration-none text-black" href="ShowTeacherDeatail.aspx">
                     <div style="width: 150px; height: 150px; padding-top: 40px;" class="border border-1 border-primary bg-white rounded">
                         <div class="ms-5 me-5 bg-black p-2 rounded" style="text-align: center;">
                             <span><i class="fa-solid fa-person" style="color: #ffffff;"></i><i class="fa-solid fa-clipboard-list" style="color: #ffffff;"></i></span>
                         </div>
                         <div class="mt-3 text-center">
-                            Show HOD List
+                            Show Teacher List
                         </div>
                     </div>
                 </a>
 
-                <a href="showcourselist.aspx" style="cursor: pointer;" class="text-decoration-none text-black">
+                <a href="CourseList.aspx" style="cursor: pointer;" class="text-decoration-none text-black">
                     <div style="width: 150px; height: 150px; padding-top: 40px;" class="border border-1 border-primary bg-white rounded ms-3">
                         <div class="ms-5 me-5 bg-black p-2 rounded" style="text-align: center;">
                             <span><i class="fa-solid fa-clipboard-list" style="color: #ffffff;"></i></span>
                         </div>
                         <div class="mt-3 text-center">
-                            Show Department List
+                            Show Course List
                         </div>
                     </div>
                 </a>

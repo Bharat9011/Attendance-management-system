@@ -12,10 +12,16 @@ namespace Attendance_management_system.Principal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Database db = new Database();
-            string value = db.get_value("DepartmentName", "DepartmentDetail", DataVariable.ID);
+            if (Session["AccountID"] == null)
+            {
+                Response.Redirect("~/Default.aspx");
+            } else
+            {
+                Database db = new Database();
+                string value = db.get_value("DepartmentName", "DepartmentDetail", DataVariable.ID);
 
-            UDNameDepartment.Text = value.Trim();
+                UDNameDepartment.Text = value.Trim();
+            }
         }
     }
 }

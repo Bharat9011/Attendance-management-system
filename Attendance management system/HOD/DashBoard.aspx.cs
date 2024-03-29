@@ -11,7 +11,10 @@ namespace Attendance_management_system.HOD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["AccountID"] == null)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
         }
     }
 }
