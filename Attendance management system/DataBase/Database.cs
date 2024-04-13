@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web.Caching;
-using System.Web.Security;
-using System.Web.UI.WebControls;
 
 namespace Attendance_management_system.DataBase
 {
     public class Database
     {
         private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString"].ConnectionString;
-        SqlCommand cmd;
-        SqlConnection sql;
+        readonly SqlCommand cmd;
+        readonly SqlConnection sql;
         SqlDataReader sqlr;
 
         public Database()
@@ -22,7 +18,7 @@ namespace Attendance_management_system.DataBase
             cmd = sql.CreateCommand();
         }
 
-        public (int, string) login(string Email, string password)
+        public (int, string) Login(string Email, string password)
         {
             int id = 0;
             String type = "none";
@@ -37,9 +33,8 @@ namespace Attendance_management_system.DataBase
             return (id, type);
         }
 
-        public int createDepartment(string name)
+        public int CreateDepartment(string name)
         {
-
             cmd.CommandText = "insert into DepartmentDetail (DepartmentName) values ('" + name + "')";
             cmd.ExecuteNonQuery();
             return 0;
@@ -64,7 +59,7 @@ namespace Attendance_management_system.DataBase
             }
         }
 
-/*        public int selectQuary(string sqlS)
+        public int SelectQuary(string sqlS)
         {
             int i = 0;
             if (sqlS != String.Empty)
@@ -78,9 +73,9 @@ namespace Attendance_management_system.DataBase
                 sqlr.Close();
             }
             return i;
-        }*/
+        }
 
-        public String get_value(string coloum_name, string table_name, int Condition)
+        public String Get_Value(string coloum_name, string table_name, int Condition)
         {
             String re = "";
             try
@@ -104,7 +99,7 @@ namespace Attendance_management_system.DataBase
         }
 
         //to ensure the data value allready exit or not
-        public int checkexit(String tableName, string colume, String condition)
+        public int CheckExit(String tableName, string colume, String condition)
         {
             int i = 0;
 

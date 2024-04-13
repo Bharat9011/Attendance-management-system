@@ -3,13 +3,31 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <fieldset class="border p-3 bg-white rounded">
-    <legend class="w-auto">Permission</legend>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Department Name</label>
-        <asp:TextBox runat="server" TextMode="SingleLine" ID="NameCourse" class="form-control"></asp:TextBox>
+    <div class="container-fluid bg-white p-2">
+
+    <asp:Label runat="server" Text="select Teacher Name" CssClass="p" />
+    
+    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control mt-1"></asp:DropDownList>
+
+    <asp:Button runat="server" Text="Search" ID="FindTeacher" OnClick="FindTeacher_Click" CssClass="btn btn-success mt-2"  />
+
+    <div>
+
+        <asp:GridView runat="server" ID="GridView1" AutoGenerateColumns="False" DataKeyNames="id" CssClass="table mt-2 table-bordered table-striped table-hover table-responsive">
+            <Columns>
+                <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
+                <asp:BoundField DataField="permission" HeaderText="permission" SortExpression="permission" />
+            </Columns>
+        </asp:GridView>
+
     </div>
-    <asp:Button runat="server" CssClass="btn btn-primary mt-3 align-items-center" Text="Submit" />
-</fieldset>
+
+    <div class="mt-3">
+        <asp:Button runat="server" OnClientClick="false" Text="Not Allow" CssClass="btn btn-danger" ID="NotAllow" OnClick="NotAllow_Click" Visible="false" />
+        <asp:Button runat="server" OnClientClick="false" Text="Allow" CssClass="btn btn-success" ID="Allow" OnClick="Allow_Click" Visible="false" />
+    </div>
+
+</div>
 
 </asp:Content>

@@ -28,7 +28,7 @@
                 <asp:TextBox ID="password" runat="server"></asp:TextBox>
                 <br />
                 <br />
-                <asp:Button CssClass="bg-light-subtle" runat="server" Text="login" ID="login" OnClick="login_Click" />
+                <asp:Button CssClass="bg-light-subtle" runat="server" Text="login" ID="login" OnClick="Login_Click" />
                 <br />
                 <label runat="server" class="check">forgot password</label>
             </div>

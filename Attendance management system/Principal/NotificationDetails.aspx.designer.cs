@@ -11,7 +11,7 @@ namespace Attendance_management_system.Principal
 {
 
 
-    public partial class ActionOnNotification
+    public partial class NotificationDetails
     {
     }
 }

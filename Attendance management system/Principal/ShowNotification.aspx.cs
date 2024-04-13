@@ -16,5 +16,15 @@ namespace Attendance_management_system.Principal
                 Response.Redirect("~/Default.aspx");
             }
         }
+
+        protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            int index = Convert.ToInt32(e.NewSelectedIndex);
+            GridViewRow row = GridView1.Rows[index];
+            string value = (row.FindControl("Label1") as Label).Text;
+
+            Response.Redirect("NotificationDetails.aspx?id=" + value);
+
+        }
     }
 }

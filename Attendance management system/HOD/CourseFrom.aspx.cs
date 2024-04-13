@@ -17,18 +17,20 @@ namespace Attendance_management_system.HOD
                 Response.Redirect("~/Default.aspx");
             } else {
                 string idval = Request.QueryString["id"];
-                showData(idval);
+                ShowData(idval);
             }
             
         }
 
-        private void showData(string id)
+        private void ShowData(string id)
         {
+            string idv = id;
+            Response.Write("<script>alert('" + idv + "')</script>");
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = "Data Source=SHRIKHRISHNA\\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;";
             sqlConnection.Open();
-            string q = "SELECT [id], [CourseName], [Co_ordinator], [DepartmentName] FROM [CourseDeatil] where id="+ id;
-            SqlCommand cmd = new SqlCommand(q,sqlConnection);
+            string q = "SELECT [id], [CourseName], [Co_ordinator], [DepartmentName] FROM [CourseDeatil] where id=" + id;
+            SqlCommand cmd = new SqlCommand(q, sqlConnection);
             SqlDataReader sqlDataReader = cmd.ExecuteReader();
             while (sqlDataReader.Read())
             {

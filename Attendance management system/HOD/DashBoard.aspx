@@ -41,9 +41,9 @@
                 </div>
 
                 <div class="row-1 ps-5 m-auto text-center fs-5">
-                    <span>Total Department</span>
+                    <span>Total Course</span>
                     <br />
-                    <span>10000</span>
+                    <asp:Label runat="server" ID="DepartmentCount" Text="Label"></asp:Label>
                 </div>
 
             </div>
@@ -56,7 +56,7 @@
                 <div class="row-1 ps-5 m-auto text-center fs-5">
                     <span>Total Teacher</span>
                     <br />
-                    <span>10000</span>
+                    <asp:Label runat="server" ID="tacherCount" Text="Label"></asp:Label>
                 </div>
             </div>
         </div>
@@ -79,34 +79,30 @@
 
         <!-- Notification -->
 
-        <div class="w-100 border border-1 border-primary ms-2">
+        <div style="width: 800px;" class="border border-1 border-primary ms-2">
 
             <div style="height: 50px; line-height: 50px; font-size: 20px; display: flex;" class="border border-top-0 border-end-0 border-start-0 border-1 border-black ps-3">
                 Notification
-        <div style="position: relative; left: 194px; right: 0; color: white; cursor: pointer;" class="bg-primary ps-2 pe-2">
-            <span class="" style="font-size: 15px; line-height: 50px;">View More</span>
-        </div>
-            </div>
-
-            <div class="container mt-3">
-
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Success!</strong> Your operation was successful.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+                <div style="position: relative; left: 170px; right: 0; color: white; cursor: pointer;" class="bg-primary ps-2 pe-2">
+                    <span class="" style="font-size: 15px; line-height: 50px;"><a class="text-white text-decoration-none" href="Notification.aspx">View More</a></span>
                 </div>
+           </div>
 
-                <div class="alert alert-info alert-dismissible fade show" role="alert">
-                    <strong>Info:</strong> This is an informational message.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-                </div>
+            <div class="container mt-2">
+
+                <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered table-hover table-responsive table-striped" ShowHeader="false" DataSourceID="SqlDataSource1"></asp:GridView>
+
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString='<%$ ConnectionStrings:AMSConnectionString %>' SelectCommand="SELECT [NotificationTitle] FROM [Notification] WHERE (([Notofication_To] = @Notofication_To) OR ([Notofication_To] = @Notofication_To2))">
+                    <selectparameters>
+                        <asp:Parameter DefaultValue="All (HOD,Teacher,Co-ordinator, Student)" Name="Notofication_To" Type="String"></asp:Parameter>
+                        <asp:Parameter DefaultValue="HOD" Name="Notofication_To2" Type="String"></asp:Parameter>
+                    </selectparameters>
+                </asp:SqlDataSource>
+
             </div>
         </div>
 
-        <div class="ms-5 mt-5">
+        <div class="w-100 ms-5 mt-5">
             <div style="display: flex;">
                 <a class="text-decoration-none text-black" href="CreateCourse.aspx">
                     <div style="width: 150px; height: 150px; padding-top: 40px;" class="border border-1 border-primary bg-white rounded">

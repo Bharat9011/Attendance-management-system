@@ -3,12 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <div class="p-2">
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" CssClass="table table-bordered table-hover table-striped">
+        
+    <div class="p-2">
+
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" CssClass="table table-bordered table-responsive table-hover table-striped">
                 <Columns>
                     <asp:TemplateField HeaderText="ID">
                         <EditItemTemplate>
-                            <asp:Label ID="Label9" runat="server" Text='<%= Eval("id") %>'></asp:Label>
+                            <asp:Label ID="Label9" runat="server" Text='<%# Eval("id") %>'></asp:Label>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label8" runat="server" Text='<%# Eval("id") %>'></asp:Label>
@@ -46,14 +48,6 @@
                             <asp:Label ID="Label4" runat="server" Text='<%# Eval("role1") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Role 2">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Eval("role2") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="Label5" runat="server" Text='<%# Eval("role2") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Department">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox7" runat="server" Text='<%# Eval("DepatmentName") %>'></asp:TextBox>
@@ -72,8 +66,8 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Edit">
                         <EditItemTemplate>
-                            <asp:Button ID="Button4" runat="server" CommandName="Update" Text="Update" />
-                            <asp:Button ID="Button5" runat="server" CommandName="Cancel" Text="Cancel" />
+                            <asp:Button ID="Button4" runat="server" CommandName="Update" Text="Update" CssClass="btn btn-success" />
+                            <asp:Button ID="Button5" runat="server" CommandName="Cancel" Text="Cancel" CssClass="btn btn-danger" />
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Button ID="Button1" runat="server" CommandName="Edit" Text="Edit" CssClass="btn btn-success" />
@@ -86,10 +80,13 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
+
         </div>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AMSConnectionString2 %>" SelectCommand="SELECT [id],[name], [email], [password], [role1], [role2], [DepatmentName],[permission] FROM [TeacherstaffDetail] WHERE ([role1] = @role1)">
+
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AMSConnectionString2 %>" SelectCommand="SELECT [id],[name], [email], [password], [role1], [DepatmentName],[permission] FROM [TeacherstaffDetail] WHERE ([role1] = @role1)">
             <SelectParameters>
                 <asp:Parameter DefaultValue="HOD" Name="role1" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
+
 </asp:Content>

@@ -17,10 +17,13 @@ namespace Attendance_management_system.Principal
             {
                 Response.Redirect("~/Default.aspx");
             }
-            if (!IsPostBack)
+            else
             {
-                GridView1.DataSource = SqlDataSource1;
-                GridView1.DataBind();
+                if (!IsPostBack)
+                {
+                    GridView1.DataSource = SqlDataSource1;
+                    GridView1.DataBind();
+                }
             }
         }
 
@@ -60,17 +63,15 @@ namespace Attendance_management_system.Principal
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-
             System.Web.UI.WebControls.Label id = GridView1.Rows[e.RowIndex].FindControl("Label9") as System.Web.UI.WebControls.Label;
             TextBox name = GridView1.Rows[e.RowIndex].FindControl("TextBox1") as TextBox;
             TextBox email = GridView1.Rows[e.RowIndex].FindControl("TextBox2") as TextBox;
             TextBox password = GridView1.Rows[e.RowIndex].FindControl("TextBox3") as TextBox;
             TextBox role1 = GridView1.Rows[e.RowIndex].FindControl("TextBox5") as TextBox;
-            TextBox role2 = GridView1.Rows[e.RowIndex].FindControl("TextBox6") as TextBox;
             TextBox dwpartment = GridView1.Rows[e.RowIndex].FindControl("TextBox7") as TextBox;
             TextBox permission = GridView1.Rows[e.RowIndex].FindControl("TextBox4") as TextBox;
 
-            string update = "Update TeacherstaffDetail set [name] = '" + name.Text + "',[email] = '" + email.Text + "',[password] = '" + password.Text + "',[role1] = '" + role1.Text + "',[role2] = '" + role2.Text + "',[DepatmentName] = '" + dwpartment.Text + "',[permission] = '" + permission.Text + "' where id=" + id.Text;
+            string update = "Update TeacherstaffDetail set [name] = '" + name.Text + "',[email] = '" + email.Text + "',[password] = '" + password.Text + "',[role1] = '" + role1.Text + "',[DepatmentName] = '" + dwpartment.Text + "',[permission] = '" + permission.Text + "' where id=" + id.Text;
 
             SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
             sqlConnection.Open();

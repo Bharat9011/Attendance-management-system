@@ -18,11 +18,7 @@
             <div class="row col-12 col-lx-12 mt-3">
                 <div class="form-group">
                     <asp:Label Text="Select Department" runat="server"  />
-                    
-                    <asp:DropDownList ID="selectDepartment" runat="server" DataSourceID="SqlDataSource2"  CssClass="form-control mt-2" DataTextField="DepartmentName" DataValueField="DepartmentName"></asp:DropDownList>
-                    
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:AMSConnectionString %>" SelectCommand="SELECT [DepartmentName] FROM [DepartmentDetail]"></asp:SqlDataSource>
-                    
+                    <asp:TextBox runat="server" ID="Department" TextMode="SingleLine" CssClass="form-control mt-1" Enabled="false"/>
                 </div>
             </div>
 

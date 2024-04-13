@@ -15,12 +15,11 @@ namespace Attendance_management_system
 
         }
 
-        protected void login_Click(object sender, EventArgs e)
+        protected void Login_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('hi')</script>");
 
             Database database = new Database();
-            var result = database.login(email.Text, password.Text);
+            var result = database.Login(email.Text, password.Text);
 
             Session["AccountID"] = result.Item1;
             
@@ -30,6 +29,9 @@ namespace Attendance_management_system
             } else if (result.Item2 == "HOD")
             {
                 Response.Redirect("HOD/DashBoard.aspx");
+            } else if(result.Item2 == "co-ordinator")
+            {
+                Response.Redirect("Co_ordinator/DashBoardaspx.aspx");
             }
         }
     }

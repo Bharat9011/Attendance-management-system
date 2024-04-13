@@ -5,29 +5,42 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <h1 class="text-center mt-3 mb-2">Department List</h1>
-
-    <asp:GridView CssClass="table table-striped table-hover shadow" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+    
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-hover table-responsive table-striped" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
         <Columns>
-            <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-            <asp:BoundField DataField="DepartmentName" HeaderText="DepartmentName" SortExpression="DepartmentName" />
-
-            <asp:TemplateField HeaderText="Edit">
+            <asp:TemplateField HeaderText="Id">
+                <EditItemTemplate>
+                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("id") %>'></asp:Label>
+                </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Button ID="edit" runat="server" CssClass="btn btn-info text-white" Text="Edit" />
+                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("id") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:TemplateField HeaderText="View">
+            <asp:TemplateField HeaderText="Department Name">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("DepartmentName") %>'></asp:TextBox>
+                </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Button ID="view" runat="server" CssClass="btn btn-success text-white" Text="View" />
+                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("DepartmentName") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Edit">
+                <EditItemTemplate>
+                    <asp:Button ID="Button3" runat="server" CommandName="Update" Text="Update" CssClass="btn btn-success" />
+                    &nbsp;
+                    <asp:Button ID="Button4" runat="server" CommandName="Cancel" Text="Cancel" CssClass="btn btn-danger" />
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Button ID="Button1" runat="server" CommandName="Edit" Text="Edit" CssClass="btn btn-info" />
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Delete">
                 <ItemTemplate>
-                    <asp:Button ID="delete" runat="server" CssClass="btn btn-danger text-white" Text="Delete" />
+                    <asp:Button ID="Button2" runat="server" CommandName="Delete" Text="Delete" CssClass="btn btn-danger" />
                 </ItemTemplate>
             </asp:TemplateField>
-
         </Columns>
     </asp:GridView>
+
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AMSConnectionString2 %>" SelectCommand="SELECT * FROM [DepartmentDetail]" ProviderName="<%$ ConnectionStrings:AMSConnectionString2.ProviderName %>"></asp:SqlDataSource>
 </asp:Content>

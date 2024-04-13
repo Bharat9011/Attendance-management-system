@@ -18,7 +18,7 @@ namespace Attendance_management_system.Principal
             } else
             {
                 Database db = new Database();
-                string value = db.get_value("DepartmentName", "DepartmentDetail", DataVariable.ID);
+                string value = db.Get_Value("DepartmentName", "DepartmentDetail", DataVariable.ID);
 
                 UDNameDepartment.Text = value.Trim();
             }

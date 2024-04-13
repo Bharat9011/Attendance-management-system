@@ -16,10 +16,13 @@ namespace Attendance_management_system.Principal
             {
                 Response.Redirect("~/Default.aspx");
             }
-            if (!IsPostBack)
+            else
             {
-                GridView3.DataSource = SqlDataSource1;
-                GridView3.DataBind();
+                if (!IsPostBack)
+                {
+                    GridView3.DataSource = SqlDataSource1;
+                    GridView3.DataBind();
+                }
             }
         }
 

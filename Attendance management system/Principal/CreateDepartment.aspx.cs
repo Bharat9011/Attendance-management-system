@@ -17,7 +17,7 @@ namespace Attendance_management_system.Principal
         {
             Database database = new Database();
 
-            int result = database.checkexit("DepartmentDetail", "DepartmentName", "DepartmentName='" + NameDepartment.Text+"'");
+            int result = database.CheckExit("DepartmentDetail", "DepartmentName", "DepartmentName='" + NameDepartment.Text+"'");
 
             if (result > 0)
             {
@@ -25,7 +25,7 @@ namespace Attendance_management_system.Principal
                 NameDepartment.Text = "";
             } else if (result == 0)
             {
-                int result2 = database.createDepartment(NameDepartment.Text);
+                int result2 = database.CreateDepartment(NameDepartment.Text);
                 if (result2 == 0)
                 {
                     Response.Write("<script>alert('Department Created');</script>");
