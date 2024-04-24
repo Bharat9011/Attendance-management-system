@@ -20,22 +20,22 @@ namespace Attendance_management_system.Principal
             {
                 if (!IsPostBack)
                 {
-                    GridView3.DataSource = SqlDataSource1;
-                    GridView3.DataBind();
+                    GridView1.DataSource = SqlDataSource1;
+                    GridView1.DataBind();
                 }
             }
         }
 
-        protected void GridView3_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-            GridView3.EditIndex = -1;
-            GridView3.DataSource = SqlDataSource1;
-            GridView3.DataBind();
+            GridView1.EditIndex = -1;
+            GridView1.DataSource = SqlDataSource1;
+            GridView1.DataBind();
         }
 
-        protected void GridView3_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            Label id = GridView3.Rows[e.RowIndex].FindControl("Label1") as Label;
+            Label id = GridView1.Rows[e.RowIndex].FindControl("Label1") as Label;
 
             string deleting = "delete from StudentDetails where id='" + id.Text + "'";
 
@@ -46,29 +46,29 @@ namespace Attendance_management_system.Principal
             cmd.Connection = sqlConnection;
             cmd.ExecuteNonQuery();
 
-            GridView3.EditIndex = -1;
+            GridView1.EditIndex = -1;
             SqlDataSource1.DataBind();
-            GridView3.DataSource = SqlDataSource1;
-            GridView3.DataBind();
+            GridView1.DataSource = SqlDataSource1;
+            GridView1.DataBind();
         }
 
-        protected void GridView3_RowEditing(object sender, GridViewEditEventArgs e)
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            GridView3.EditIndex = e.NewEditIndex;
-            GridView3.DataSource = SqlDataSource1;
-            GridView3.DataBind();
+            GridView1.EditIndex = e.NewEditIndex;
+            GridView1.DataSource = SqlDataSource1;
+            GridView1.DataBind();
         }
 
-        protected void GridView3_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            System.Web.UI.WebControls.Label id = GridView3.Rows[e.RowIndex].FindControl("Label9") as System.Web.UI.WebControls.Label;
-            TextBox name = GridView3.Rows[e.RowIndex].FindControl("TextBox1") as TextBox;
-            TextBox email = GridView3.Rows[e.RowIndex].FindControl("TextBox2") as TextBox;
-            TextBox Contact = GridView3.Rows[e.RowIndex].FindControl("TextBox3") as TextBox;
-            TextBox Department = GridView3.Rows[e.RowIndex].FindControl("TextBox4") as TextBox;
-            TextBox Course = GridView3.Rows[e.RowIndex].FindControl("TextBox5") as TextBox;
-            TextBox Class = GridView3.Rows[e.RowIndex].FindControl("TextBox6") as TextBox;
-            TextBox SeesionYear = GridView3.Rows[e.RowIndex].FindControl("TextBox7") as TextBox;
+            System.Web.UI.WebControls.Label id = GridView1.Rows[e.RowIndex].FindControl("Label9") as System.Web.UI.WebControls.Label;
+            TextBox name = GridView1.Rows[e.RowIndex].FindControl("TextBox1") as TextBox;
+            TextBox email = GridView1.Rows[e.RowIndex].FindControl("TextBox2") as TextBox;
+            TextBox Contact = GridView1.Rows[e.RowIndex].FindControl("TextBox3") as TextBox;
+            TextBox Department = GridView1.Rows[e.RowIndex].FindControl("TextBox4") as TextBox;
+            TextBox Course = GridView1.Rows[e.RowIndex].FindControl("TextBox5") as TextBox;
+            TextBox Class = GridView1.Rows[e.RowIndex].FindControl("TextBox6") as TextBox;
+            TextBox SeesionYear = GridView1.Rows[e.RowIndex].FindControl("TextBox7") as TextBox;
 
             string update = "UPDATE [dbo].[StudentDetails] SET"
                 + " [StudentName] = '" + name.Text + "',[StudentEmail] = '" + email.Text + "',[StudentContactNumber] = '" + Contact.Text + "',"
@@ -82,10 +82,10 @@ namespace Attendance_management_system.Principal
             cmd.Connection = sqlConnection;
             cmd.ExecuteNonQuery();
 
-            GridView3.EditIndex = -1;
+            GridView1.EditIndex = -1;
             SqlDataSource1.DataBind();
-            GridView3.DataSource = SqlDataSource1;
-            GridView3.DataBind();
+            GridView1.DataSource = SqlDataSource1;
+            GridView1.DataBind();
         }
     }
 }

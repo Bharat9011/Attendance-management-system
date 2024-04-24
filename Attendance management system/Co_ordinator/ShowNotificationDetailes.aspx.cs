@@ -5,15 +5,15 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Attendance_management_system.HOD
+namespace Attendance_management_system.Co_ordinator
 {
-    public partial class ShowNotification : System.Web.UI.Page
+    public partial class ShowNotificationDetailes : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
             {
-                Response.Redirect("~/Default.aspx");
+                Response.Redirect("~./Default.aspx");
             }
         }
 
@@ -21,10 +21,9 @@ namespace Attendance_management_system.HOD
         {
             int index = Convert.ToInt32(e.NewSelectedIndex);
             GridViewRow row = GridView1.Rows[index];
-            string value = (row.FindControl("Label1") as Label).Text;
+            string value = (row.FindControl("Label2") as Label).Text;
 
-            Response.Redirect("NotificationDetails.aspx?id=" + value);
-
+            Response.Redirect("ViewNotification.aspx?id=" + value);
         }
     }
 }

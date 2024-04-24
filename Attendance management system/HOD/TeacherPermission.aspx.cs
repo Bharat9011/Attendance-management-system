@@ -82,7 +82,7 @@ namespace Attendance_management_system.HOD
 
             SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
             sqlConnection.Open();
-            string s = "UPDATE TeacherstaffDetail SET [permission]='YES' WHERE id="+id;
+            string s = "UPDATE TeacherstaffDetail SET [permission]='YES' WHERE id=" + id;
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
             sqlCommand.ExecuteNonQuery();
         }
@@ -93,8 +93,8 @@ namespace Attendance_management_system.HOD
 
             SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
             sqlConnection.Open();
-            string s = "UPDATE TeacherstaffDetail SET [permission]='NOT' WHERE id="+id;
-            SqlCommand sqlCommand = new SqlCommand(s,sqlConnection);
+            string s = "UPDATE TeacherstaffDetail SET [permission]='NOT' WHERE id=" + id;
+            SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
             sqlCommand.ExecuteNonQuery();
         }
     }

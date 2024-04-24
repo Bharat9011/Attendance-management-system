@@ -66,7 +66,7 @@
 
         <!-- chart for present by course -->
 
-        <div id="chartContainer" class="w-50 h-25">
+        <div id="chartContainer" class="me-3 h-25">
 
             <div id="Present" class="border p-2 border-primary-subtle" style="width: 400px; height: 210px;">
                 <canvas id="PChart"></canvas>
@@ -79,16 +79,16 @@
 
         <!-- Notification -->
 
-        <div style="width: 800px;" class="border border-1 border-primary ms-2">
+        <div style="width: 400px;" class="border border-1 border-primary">
 
-            <div style="height: 50px; line-height: 50px; font-size: 20px; display: flex;" class="border border-top-0 border-end-0 border-start-0 border-1 border-black ps-3">
+            <div style="height: 50px; line-height: 50px; font-size: 20px; display: flex;" class="border border-top-0 border-end-0 border-start-0 border-1 border-black ps-2">
                 Notification
-                <div style="position: relative; left: 170px; right: 0; color: white; cursor: pointer;" class="bg-primary ps-2 pe-2">
-                    <span class="" style="font-size: 15px; line-height: 50px;"><a class="text-white text-decoration-none" href="Notification.aspx">View More</a></span>
+                <div style="position: relative; left: 200px; right: 0; color: white; cursor: pointer;" class="bg-primary ps-2 pe-2">
+                    <span style="font-size: 15px; line-height: 50px;"><a class="text-white text-decoration-none" href="Notification.aspx">View More</a></span>
                 </div>
            </div>
 
-            <div class="container mt-2">
+            <div class="container mt-3">
 
                 <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered table-hover table-responsive table-striped" ShowHeader="false" DataSourceID="SqlDataSource1"></asp:GridView>
 
@@ -98,11 +98,10 @@
                         <asp:Parameter DefaultValue="HOD" Name="Notofication_To2" Type="String"></asp:Parameter>
                     </selectparameters>
                 </asp:SqlDataSource>
-
             </div>
         </div>
 
-        <div class="w-100 ms-5 mt-5">
+        <div class="ms-5 mt-5">
             <div style="display: flex;">
                 <a class="text-decoration-none text-black" href="CreateCourse.aspx">
                     <div style="width: 150px; height: 150px; padding-top: 40px;" class="border border-1 border-primary bg-white rounded">

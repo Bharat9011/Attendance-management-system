@@ -25,11 +25,11 @@
             background-color: aquamarine;
         }
 
-            .HODHeading .p {
-                font-size: 20px;
-                line-height: 50px;
-                margin-right: 10px;
-            }
+        .HODHeading .p {
+            font-size: 20px;
+            line-height: 50px;
+            margin-right: 10px;
+        }
 
         .containers {
             width: 20%;
@@ -69,13 +69,14 @@
                         </a>
                     </div>
                     <div>
-                        <div class="container text-black bg-light my-2">
+
+                        <div class="container text-black bg-light my-2 mt-2">
                             <ul class="my-2 p-2" onclick="showcourse()" style="list-style: none;">
                                 <li>
-                                    <a class="text-decoration-none text-black dropdown-toggle">Student Account</a>
+                                    <a class="text-decoration-none text-black dropdown-toggle">Create Subject</a>
                                     <ul id="cMenu" style="list-style: none; display: none;">
-                                        <li style="padding: 7px 5px"><a href="StudentAccountCreate.aspx" class="text-decoration-none">Student Account</a></li>
-                                        <li style="padding: 7px 5px"><a href="ShowStudentDeatail.aspx" class="text-decoration-none">Student Deatail</a></li>
+                                        <li style="padding: 7px 5px"><a href="SubjectCreate.aspx" class="text-decoration-none">Create Subject</a></li>
+                                        <li style="padding: 7px 5px"><a href="ShowSubject.aspx" class="text-decoration-none">Show Suject</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -92,8 +93,27 @@
                             </script>
                         </div>
 
-                        <div class="container text-black bg-light my-3 p-1">
-                            <span style="cursor: pointer;" class="p-3 my-2"><a class="text-decoration-none text-black" href="StudentList.aspx">Student List</a></span>
+                        <div class="container text-black bg-light my-2 mt-3">
+                            <ul class="my-2 p-2" onclick="showcourse1()" style="list-style: none;">
+                                <li>
+                                    <a class="text-decoration-none text-black dropdown-toggle">Student Account</a>
+                                    <ul id="cMenu1" style="list-style: none; display: none;">
+                                        <li style="padding: 7px 5px"><a href="StudentAccountCreate.aspx" class="text-decoration-none">Student Account</a></li>
+                                        <li style="padding: 7px 5px"><a href="ShowStudentDeatail.aspx" class="text-decoration-none">Student Deatail</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <script>
+                                function showcourse1() {
+                                    var checks = document.getElementById('cMenu1').style.display;
+
+                                    if (checks == "block") {
+                                        document.getElementById('cMenu1').style.display = "none";
+                                    } else {
+                                        document.getElementById('cMenu1').style.display = "block";
+                                    }
+                                }
+                            </script>
                         </div>
 
                         <div class="container text-black bg-light my-3 p-1">
@@ -106,8 +126,8 @@
                                     <a class="text-decoration-none text-black dropdown-toggle">Notification</a>
                                     <ul id="NMenu" style="list-style: none; display: none;">
                                         <li style="padding: 7px 5px"><a href="CreateNotification.aspx" class="text-decoration-none">Create Notification</a></li>
-                                        <li style="padding: 7px 5px"><a href="ShowNotification.aspx" class="text-decoration-none">Show All Notification</a></li>
-                                        <li style="padding: 7px 5px"><a href="OperationNotification.aspx" class="text-decoration-none">Operation On Notification</a></li>
+                                        <li style="padding: 7px 5px"><a href="ShowNotification.aspx" class="text-decoration-none">Show My Notification</a></li>
+                                        <li style="padding: 7px 5px"><a href="ShowNotificationDetailes.aspx" class="text-decoration-none">Show Notification</a></li>
                                     </ul>
                                 </li>
                             </ul>

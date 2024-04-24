@@ -19,8 +19,11 @@ namespace Attendance_management_system.Principal
                 Response.Redirect("~/Default.aspx");
             } else
             {
-                SessionDetaile();
-                GetData();
+                if (!IsPostBack)
+                {
+                    SessionDetaile();
+                    GetData();
+                }
             }
         }
 
@@ -53,6 +56,7 @@ namespace Attendance_management_system.Principal
                 departmentName = reader.GetString(0);
             }
             reader.Close();
+
         }
 
         protected void FindTeacher_Click(object sender, EventArgs e)
@@ -99,6 +103,7 @@ namespace Attendance_management_system.Principal
             string s = "UPDATE TeacherstaffDetail SET [permission]='YES' WHERE id=" + id;
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
             sqlCommand.ExecuteNonQuery();
+
         }
     }
 }

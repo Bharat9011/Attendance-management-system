@@ -33,6 +33,7 @@ namespace Attendance_management_system.Principal
                 PrincipalName.Text = reader["Name"].ToString();
             }
             reader.Close();
+
         }
     }
 }

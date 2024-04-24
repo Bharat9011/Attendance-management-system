@@ -83,16 +83,19 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Co_ordinator\CreateNotification.aspx" />
-    <Content Include="Co_ordinator\DashBoardaspx.aspx" />
-    <Content Include="Co_ordinator\OperationNotification.aspx" />
+    <Content Include="Co_ordinator\DashBoard.aspx" />
     <Content Include="Co_ordinator\ShowNotification.aspx" />
+    <Content Include="Co_ordinator\ShowNotificationDetailes.aspx" />
     <Content Include="Co_ordinator\ShowStudentAttendance.aspx" />
     <Content Include="Co_ordinator\ShowStudentDeatail.aspx" />
+    <Content Include="Co_ordinator\ShowSubject.aspx" />
     <Content Include="Co_ordinator\StudentAccountCreate.aspx" />
-    <Content Include="Co_ordinator\StudentList.aspx" />
+    <Content Include="Co_ordinator\SubjectCreate.aspx" />
+    <Content Include="Co_ordinator\ViewNotification.aspx" />
     <Content Include="CSS\LoginPage.css" />
     <Content Include="Default.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="HOD\AllocatesCo-Ordinator.aspx" />
     <Content Include="HOD\CourseFrom.aspx" />
     <Content Include="HOD\CourseList.aspx" />
     <Content Include="HOD\CreateCourse.aspx" />
@@ -126,6 +129,7 @@
     <Content Include="Principal\ShowAttendance.aspx" />
     <Content Include="Principal\ShowDeatail.aspx" />
     <Content Include="Principal\ShowNotification.aspx" />
+    <Content Include="Principal\ShowNotificationDetailes.aspx" />
     <Content Include="Principal\UpdateDepartment.aspx" />
     <Content Include="Principal\ShowProfile.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -153,19 +157,12 @@
     <Compile Include="Co_ordinator\CreateNotification.aspx.designer.cs">
       <DependentUpon>CreateNotification.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Co_ordinator\DashBoardaspx.aspx.cs">
-      <DependentUpon>DashBoardaspx.aspx</DependentUpon>
+    <Compile Include="Co_ordinator\DashBoard.aspx.cs">
+      <DependentUpon>DashBoard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Co_ordinator\DashBoardaspx.aspx.designer.cs">
-      <DependentUpon>DashBoardaspx.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Co_ordinator\OperationNotification.aspx.cs">
-      <DependentUpon>OperationNotification.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Co_ordinator\OperationNotification.aspx.designer.cs">
-      <DependentUpon>OperationNotification.aspx</DependentUpon>
+    <Compile Include="Co_ordinator\DashBoard.aspx.designer.cs">
+      <DependentUpon>DashBoard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Co_ordinator\ShowNotification.aspx.cs">
       <DependentUpon>ShowNotification.aspx</DependentUpon>
@@ -173,6 +170,13 @@
     </Compile>
     <Compile Include="Co_ordinator\ShowNotification.aspx.designer.cs">
       <DependentUpon>ShowNotification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Co_ordinator\ShowNotificationDetailes.aspx.cs">
+      <DependentUpon>ShowNotificationDetailes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Co_ordinator\ShowNotificationDetailes.aspx.designer.cs">
+      <DependentUpon>ShowNotificationDetailes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Co_ordinator\ShowStudentAttendance.aspx.cs">
       <DependentUpon>ShowStudentAttendance.aspx</DependentUpon>
@@ -188,6 +192,13 @@
     <Compile Include="Co_ordinator\ShowStudentDeatail.aspx.designer.cs">
       <DependentUpon>ShowStudentDeatail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Co_ordinator\ShowSubject.aspx.cs">
+      <DependentUpon>ShowSubject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Co_ordinator\ShowSubject.aspx.designer.cs">
+      <DependentUpon>ShowSubject.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Co_ordinator\StudentAccountCreate.aspx.cs">
       <DependentUpon>StudentAccountCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -195,14 +206,28 @@
     <Compile Include="Co_ordinator\StudentAccountCreate.aspx.designer.cs">
       <DependentUpon>StudentAccountCreate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Co_ordinator\StudentList.aspx.cs">
-      <DependentUpon>StudentList.aspx</DependentUpon>
+    <Compile Include="Co_ordinator\SubjectCreate.aspx.cs">
+      <DependentUpon>SubjectCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Co_ordinator\StudentList.aspx.designer.cs">
-      <DependentUpon>StudentList.aspx</DependentUpon>
+    <Compile Include="Co_ordinator\SubjectCreate.aspx.designer.cs">
+      <DependentUpon>SubjectCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Co_ordinator\ViewNotification.aspx.cs">
+      <DependentUpon>ViewNotification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Co_ordinator\ViewNotification.aspx.designer.cs">
+      <DependentUpon>ViewNotification.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Database.cs" />
+    <Compile Include="HOD\AllocatesCo-Ordinator.aspx.cs">
+      <DependentUpon>AllocatesCo-Ordinator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HOD\AllocatesCo-Ordinator.aspx.designer.cs">
+      <DependentUpon>AllocatesCo-Ordinator.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HOD\CourseFrom.aspx.cs">
       <DependentUpon>CourseFrom.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -413,6 +438,13 @@
     </Compile>
     <Compile Include="Principal\ShowNotification.aspx.designer.cs">
       <DependentUpon>ShowNotification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\ShowNotificationDetailes.aspx.cs">
+      <DependentUpon>ShowNotificationDetailes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Principal\ShowNotificationDetailes.aspx.designer.cs">
+      <DependentUpon>ShowNotificationDetailes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Principal\UpdateDepartment.aspx.cs">
       <DependentUpon>UpdateDepartment.aspx</DependentUpon>

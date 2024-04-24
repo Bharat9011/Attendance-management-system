@@ -24,17 +24,39 @@ namespace Attendance_management_system.Principal
             string Desciption = Notification_Desciption.Text;
             string to = To.SelectedItem.ToString();
 
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
-            sqlConnection.Open();
-            string s = "insert into Notification ([NotificationTitle],[Notification_Desciption],[Notification_From],[Notofication_To]) values ('" + title + "','" + Desciption + "','" + Session["AccountID"].ToString() +"','" + to + "')";
-            SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
-            int result = sqlCommand.ExecuteNonQuery();
-            if (result == -1)
+            if (String.Empty != title)
             {
-                Response.Write("<script>alert('something want wrong')</script>");
-            } else
+                if (String.Empty != Desciption)
+                {
+                    if (String.Empty != to)
+                    {
+                        SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+                        sqlConnection.Open();
+                        string s = "insert into Notification ([NotificationTitle],[Notification_Desciption],[Notification_From],[Notofication_To]) values ('" + title + "','" + Desciption + "','" + Session["AccountID"].ToString() + "','" + to + "')";
+                        SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
+                        int result = sqlCommand.ExecuteNonQuery();
+                        if (result == -1)
+                        {
+                            Response.Write("<script>alert('something want wrong')</script>");
+                        }
+                        else
+                        {
+                            Response.Write("<script>alert('Notification are send')</script>");
+                        }
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Desciption is empty')</script>");
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>alert('Title is empty')</script>");
+                }
+            }
+            else
             {
-                Response.Write("<script>alert('Notification send')</script>");
+                Response.Write("<script>alert('Title is empty')</script>");
             }
         }
     }

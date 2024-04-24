@@ -11,7 +11,7 @@ namespace Attendance_management_system.Co_ordinator
 {
 
 
-    public partial class StudentList
+    public partial class DashBoard
     {
     }
 }

@@ -129,6 +129,7 @@
                                     <ul id="NMenu" style="list-style: none; display: none;">
                                         <li style="padding: 7px 5px"><a href="CreateNotification.aspx" class="text-decoration-none">Create Notification</a></li>
                                         <li style="padding: 7px 5px"><a href="ShowNotification.aspx" class="text-decoration-none">Show My Notification</a></li>
+                                        <li style="padding: 7px 5px"><a href="ShowNotificationDetailes.aspx" class="text-decoration-none">Show Notification</a></li>
                                     </ul>
                                 </li>
                             </ul>

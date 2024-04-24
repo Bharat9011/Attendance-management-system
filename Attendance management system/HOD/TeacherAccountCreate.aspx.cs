@@ -89,8 +89,12 @@ namespace Attendance_management_system.HOD
                                 }
                                 else if (result == 1)
                                 {
-                                    Database database = new Database();
-                                    int results = database.Execute_Sql("UPDATE [dbo].[CourseDeatil] SET [Co_ordinator] = '" + Name + "' WHERE CourseName='" + co_ordintor_name + "'");
+                                    if (role == "Co-ordinator")
+                                    {
+                                        Database database = new Database();
+                                        int results = database.Execute_Sql("UPDATE [dbo].[CourseDeatil] SET [Co_ordinator] = '" + Name + "' WHERE CourseName='" + co_ordintor_name + "' and DepartmentName='" + department + "'");
+                                        Response.Write("<script>alert('Data save')</script>");
+                                    }
                                     Response.Write("<script>alert('Data save')</script>");
                                 }
                             }

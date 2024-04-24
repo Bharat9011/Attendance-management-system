@@ -31,7 +31,7 @@ namespace Attendance_management_system
                 Response.Redirect("HOD/DashBoard.aspx");
             } else if(result.Item2 == "co-ordinator")
             {
-                Response.Redirect("Co_ordinator/DashBoardaspx.aspx");
+                Response.Redirect("Co_ordinator/DashBoard.aspx");
             }
         }
     }

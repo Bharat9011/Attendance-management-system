@@ -36,6 +36,7 @@ namespace Attendance_management_system.HOD
                 tacherCount.Text = reader[0].ToString();
             }
             connection.Close();
+
         }
 
         private void getSessionDetails()
@@ -52,13 +53,14 @@ namespace Attendance_management_system.HOD
             }
 
             connection.Close();
+
         }
 
         private void getCourseNumber()
         {
             SqlConnection connection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
             connection.Open();
-            string s = "select count(*) from CourseDeatil where DepartmentName='"+departmentname+"'";
+            string s = "select count(*) from CourseDeatil where DepartmentName='" + departmentname + "'";
             SqlCommand sqlCommand = new SqlCommand(s, connection);
             SqlDataReader reader = sqlCommand.ExecuteReader();
             while (reader.Read())

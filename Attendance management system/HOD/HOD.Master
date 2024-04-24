@@ -95,8 +95,9 @@
                                 <li>
                                     <a class="text-decoration-none text-black dropdown-toggle">Teacher Account</a>
                                     <ul id="cMenu" style="list-style: none; display: none;">
-                                        <li style="padding: 7px 5px"><a href="TeacherAccountCreate.aspx" class="text-decoration-none">Create Teacher Account</a></li>
-                                        <li style="padding: 7px 5px"><a href="ShowTeacherDeatail.aspx" class="text-decoration-none">Teacher Deatail</a></li>
+                                        <li class="mt-2"><a href="TeacherAccountCreate.aspx" style="padding: 7px 5px" class="text-decoration-none">Create Teacher Account</a></li>
+                                        <li class="mt-2"><a href="AllocatesCo-Ordinator.aspx" style="padding: 7px 5px" class="text-decoration-none">Allocates Co-ordinater</a></li>
+                                        <li class="mt-2 "><a href="ShowTeacherDeatail.aspx" style="padding: 7px 5px" class="text-decoration-none">Teacher Deatail</a></li>
                                     </ul>
                                 </li>
                             </ul>

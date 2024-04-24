@@ -6,26 +6,25 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Attendance_management_system.Principal
+namespace Attendance_management_system.Co_ordinator
 {
-    public partial class NotificationDetails : System.Web.UI.Page
+    public partial class ViewNotification : System.Web.UI.Page
     {
+        string id;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
             {
                 Response.Redirect("~/Default.aspx");
-            }
-            else
+            } else
             {
-                ShowNotificationdetails();
+                id = Request.QueryString["id"];
+                GetData();
             }
         }
 
-        private void ShowNotificationdetails()
+        private void GetData()
         {
-            string id = Request.QueryString["id"];
-
             SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
             sqlConnection.Open();
             string s = "select * from Notification where id=" + id;

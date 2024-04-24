@@ -64,7 +64,7 @@ namespace Attendance_management_system.HOD
             GridViewRow row = GridView2.Rows[index];
             string value = (row.FindControl("Label1") as Label).Text;
 
-            Response.Redirect("teacherDetails.aspx?id="+value);
+            Response.Redirect("teacherDetails.aspx?id=" + value);
         }
     }
 }

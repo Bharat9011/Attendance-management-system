@@ -31,27 +31,28 @@ namespace Attendance_management_system.HOD
             SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
             sqlConnection.Open();
             string getData = "select * from TeacherstaffDetail where id=" + id;
-            SqlCommand sqlCommand = new SqlCommand(getData,sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand(getData, sqlConnection);
             SqlDataReader reader = sqlCommand.ExecuteReader();
 
             while (reader.Read())
             {
                 Name.Text = reader[1].ToString();
                 EmailID.Text = reader[2].ToString();
-                Role.Text = reader[3].ToString();
-                DepartmentName.Text = reader[4].ToString();
-                permission.Text = reader[5].ToString();
+                Role.Text = reader[4].ToString();
+                DepartmentName.Text = reader[5].ToString();
+                permission.Text = reader[6].ToString();
             }
 
             sqlConnection.Close();
+
         }
 
         protected void Unnamed_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection();
+            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
             sqlConnection.Open();
             string update = "UPDATE [dbo].[TeacherstaffDetail] SET [name] = '' ,[email] = '',[password] = '',[role1] = '',[DepatmentName] = '',[permission] = '' WHERE id=''";
-            SqlCommand sqlCommand = new SqlCommand(update,sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand(update, sqlConnection);
             sqlCommand.ExecuteNonQuery();
         }
     }
