@@ -36,5 +36,11 @@ namespace Attendance_management_system.HOD
             reader.Close();
         }
 
+
+        protected void Unnamed_ServerClick(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("~/Default.aspx");
+        }
     }
 }

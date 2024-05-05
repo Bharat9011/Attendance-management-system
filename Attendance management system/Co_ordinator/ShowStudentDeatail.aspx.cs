@@ -61,8 +61,8 @@ namespace Attendance_management_system.Co_ordinator
         {
             SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
             sqlConnection.Open();
-            string s = "SELECT n.id, n.StudentName, n.StudentEmail, n.StudentContactNumber, n.StudentDepartment, n.StudentCourse, n.StudentClass, n.StudentSeesionYear, n.StudentPassword FROM StudentDetails n JOIN TeacherstaffDetail t ON n.CreateBy = t.id WHERE n.CreateBy = '" + Session["AccountID"] +"'";
-            SqlDataAdapter adapter = new SqlDataAdapter(s,sqlConnection);
+            string s = "  select n.id,\r\n\t\tn.studentName,\r\n\t\tn.StudentEmail,\r\n\t\tn.StudentContactNumber,\r\n\t\tt.DepartmentName,\r\n\t\tp.CourseName,\r\n\t\tn.StudentClass,\r\n\t\tn.Semister,\r\n\t\tn.StudentSeesionYear,\r\n\t\tn.StudentPassword\r\n\t\tfrom StudentDetails n \r\n\t\tjoin \r\n\t\tDepartmentDetail t on n.StudentDepartment = t.id \r\n\t\tjoin \r\n\t\tCourseDeatil p on n.StudentCourse = p.id WHERE n.CreateBy = '" + Session["AccountID"] + "'";
+            SqlDataAdapter adapter = new SqlDataAdapter(s, sqlConnection);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
             if (dataTable.Rows.Count > 0)

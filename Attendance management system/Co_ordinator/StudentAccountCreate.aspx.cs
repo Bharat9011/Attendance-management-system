@@ -11,29 +11,53 @@ namespace Attendance_management_system.Co_ordinator
 {
     public partial class StudentAccountCreate : System.Web.UI.Page
     {
-        string courses = "";
+        string CourseName = "";
+        string DepartmentName = "";
+        int CourseID;
+        int DepartmentID;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
             {
                 Response.Redirect("~/Default.aspx");
-            } else
+            }
+            else
             {
                 GetDepartmentName();
+                GetDepartmentID();
                 GetCourse();
+
+
+                department.Text = DepartmentName;
+                course.Text = CourseName;
             }
+        }
+
+        private void GetDepartmentID()
+        {
+            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            sqlConnection.Open();
+            string s = "select id from DepartmentDetail where DepartmentName='" + DepartmentName + "'";
+            SqlCommand cmd = new SqlCommand(s, sqlConnection);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                DepartmentID = Convert.ToInt32(reader["ID"].ToString());
+            }
+            sqlConnection.Close();
         }
 
         private void GetCourse()
         {
             SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
             sqlConnection.Open();
-            string s = "select CourseName from CourseDeatil where Co_ordinator='" + courses+ "'";
+            string s = "select id,CourseName from CourseDeatil where Co_ordinator='" + CourseName+ "'";
             SqlCommand cmd = new SqlCommand(s, sqlConnection);
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                course.Text = reader[0].ToString();
+                CourseID = Convert.ToInt32(reader["ID"].ToString());
+                CourseName = reader[1].ToString();
             }
             sqlConnection.Close();
         }
@@ -47,8 +71,9 @@ namespace Attendance_management_system.Co_ordinator
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                courses = reader[0].ToString();
-                department.Text = reader[1].ToString();
+                CourseName = reader[0].ToString();
+                DepartmentName = reader[1].ToString();
+                
             }
             sqlConnection.Close();
         }
@@ -62,11 +87,12 @@ namespace Attendance_management_system.Co_ordinator
             string Number = number.Text;
             string Department = department.Text;
             string Course = course.Text;
-            string Classes = classes.Text;
+            string Classes = Year.SelectedValue;
             string sessionyear = sessionYear.Text;
             string password = Password.Text;
+            string semiste = Semister.SelectedValue;
 
-            if ( subjectname != string.Empty || Email != string.Empty ||
+            if (subjectname != string.Empty || Email != string.Empty ||
                 Number != string.Empty || Department != string.Empty ||
                 Course != string.Empty || Classes != string.Empty ||
                 sessionyear != string.Empty || password != string.Empty)
@@ -87,16 +113,25 @@ namespace Attendance_management_system.Co_ordinator
                                         {
                                             if (password != string.Empty)
                                             {
-                                                SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
-                                                sqlConnection.Open();
-                                                string insert = "INSERT INTO [dbo].[StudentDetails] ([StudentName],[StudentEmail],[StudentContactNumber],[StudentDepartment],[StudentCourse],[StudentClass],[StudentSeesionYear],[StudentPassword],[CreateBy]) VALUES ('" + subjectname + "','" + Email + "','" + Number + "','" + Department + "','" + Course + "','" + Classes + "','" + sessionyear + "','" + password + "'," + Session["AccountID"] +")";
-                                                SqlCommand sqlCommand = new SqlCommand(insert,sqlConnection);
-                                                int result = sqlCommand.ExecuteNonQuery();
-                                                if(result == -1) {
-                                                    Response.Write("<script>alert('something want wrong')</script>");
-                                                } else
+                                                if (semiste != string.Empty)
                                                 {
-                                                    Response.Write("<script>alert('data save')</script>");
+                                                    SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+                                                    sqlConnection.Open();
+                                                    string insert = "INSERT INTO [dbo].[StudentDetails] ([StudentName],[StudentEmail],[StudentContactNumber],[StudentDepartment],[StudentCourse],[StudentClass],[StudentSeesionYear],[StudentPassword],[CreateBy],[Semister]) VALUES ('" + subjectname + "','" + Email + "','" + Number + "','" + DepartmentID + "','" + CourseID + "','" + Classes + "','" + sessionyear + "','" + password + "'," + Session["AccountID"] + ",'" + semiste + "')";
+                                                    SqlCommand sqlCommand = new SqlCommand(insert, sqlConnection);
+                                                    int result = sqlCommand.ExecuteNonQuery();
+                                                    if (result == -1)
+                                                    {
+                                                        Response.Write("<script>alert('something want wrong')</script>");
+                                                    }
+                                                    else
+                                                    {
+                                                        Response.Write("<script>alert('data save')</script>");
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    Response.Write("<script>alert('semister Field are empty')</script>");
                                                 }
                                             }
                                             else
@@ -138,7 +173,8 @@ namespace Attendance_management_system.Co_ordinator
                 {
                     Response.Write("<script>alert('Student Field are empty')</script>");
                 }
-            } else
+            }
+            else
             {
                 Response.Write("<script>alert('All Field are empty')</script>");
             }

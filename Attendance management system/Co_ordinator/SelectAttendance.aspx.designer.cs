@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Attendance_management_system.HOD
+namespace Attendance_management_system.Co_ordinator
 {
 
 
-    public partial class ShowStudentAttendance
+    public partial class TakeAttendance
     {
     }
 }

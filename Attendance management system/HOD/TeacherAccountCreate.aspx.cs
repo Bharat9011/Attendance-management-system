@@ -54,7 +54,6 @@ namespace Attendance_management_system.HOD
             {
                 DepartmentName.Text = sqlDataReader.GetString(0);
                 departmentName = sqlDataReader.GetString(0);
-
             }
         }
 

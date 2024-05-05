@@ -42,7 +42,7 @@ namespace Attendance_management_system.HOD
         {
             SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
             sqlConnection.Open();
-            string s = "SELECT [id],[CourseName] FROM [CourseDeatil] where DepartmentName='" + DepartmentName+"'";
+            string s = "SELECT [id],[CourseName] FROM [CourseDeatil] where DepartmentName='" + DepartmentName + "'";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(s, sqlConnection);
             DataSet dataSet = new DataSet();
             sqlDataAdapter.Fill(dataSet);
@@ -78,7 +78,7 @@ namespace Attendance_management_system.HOD
 
             if (CheckAllreadyAllocate(course, department) == 0)
             {
-                if (CheckCourseAllocates(course)) 
+                if (CheckCourseAllocates(course))
                 {
                     if (CheckCo_OrdinatorAllocated(department))
                     {
@@ -98,7 +98,8 @@ namespace Attendance_management_system.HOD
                 {
                     Response.Write("<script>alert('course are Allocated')</script>");
                 }
-            } else
+            }
+            else
             {
                 Response.Write("<script>alert('Both are Allready Allocated')</script>");
             }

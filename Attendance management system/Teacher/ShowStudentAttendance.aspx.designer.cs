@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Attendance_management_system.HOD
+namespace Attendance_management_system.Teacher
 {
 
 
-    public partial class OperationNotification
+    public partial class ShowStudentAttendance
     {
     }
 }

@@ -33,7 +33,12 @@ namespace Attendance_management_system.Principal
                 PrincipalName.Text = reader["Name"].ToString();
             }
             reader.Close();
+        }
 
+        protected void Unnamed_ServerClick(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("~/Default.aspx");
         }
     }
 }

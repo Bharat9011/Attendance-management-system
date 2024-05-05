@@ -33,6 +33,19 @@ namespace Attendance_management_system.DataBase
             return (id, type);
         }
 
+        public string Permission(int id)
+        {
+            string permission = "";
+            cmd.CommandText = "select permission from TeacherstaffDetail where id=" + id;
+            sqlr = cmd.ExecuteReader();
+            while (sqlr.Read())
+            {
+                permission = sqlr[0].ToString().Trim();
+            }
+            sqlr.Close();
+            return permission;
+        }
+
         public int CreateDepartment(string name)
         {
             cmd.CommandText = "insert into DepartmentDetail (DepartmentName) values ('" + name + "')";

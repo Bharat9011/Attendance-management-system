@@ -29,5 +29,11 @@ namespace Attendance_management_system.Co_ordinator
             }
             reader.Close();
         }
+
+        protected void Unnamed_ServerClick(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("~/Default.aspx");
+        }
     }
 }

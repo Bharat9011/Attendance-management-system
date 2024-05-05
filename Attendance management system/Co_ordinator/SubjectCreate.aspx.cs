@@ -14,7 +14,7 @@ namespace Attendance_management_system.Co_ordinator
     public partial class SubjectCreate : System.Web.UI.Page
     {
         string departmentName = "";
-        int ID = 0;
+        new int ID = 0;
         string name = "";
         int courseID = -1;
 

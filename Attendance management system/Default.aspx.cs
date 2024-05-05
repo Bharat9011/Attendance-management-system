@@ -1,6 +1,8 @@
 ﻿using Attendance_management_system.DataBase;
+using Attendance_management_system.Principal;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -22,16 +24,43 @@ namespace Attendance_management_system
             var result = database.Login(email.Text, password.Text);
 
             Session["AccountID"] = result.Item1;
-            
-            if (result.Item2 == "Principal")
+            int id = result.Item1;
+
+            string permission = "";
+
+            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            sqlConnection.Open();
+            string s = "select permission from TeacherstaffDetail where id=" + Session["AccountID"];
+            SqlCommand sqlCommand = new SqlCommand(s,sqlConnection);
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+            while (reader.Read())
             {
-                Response.Redirect("Principal/DashBoard.aspx");
-            } else if (result.Item2 == "HOD")
+                permission = reader[0].ToString();
+            }
+            reader.Close();
+
+            if (permission == "YES")
             {
-                Response.Redirect("HOD/DashBoard.aspx");
-            } else if(result.Item2 == "co-ordinator")
+                if (result.Item2 == "Principal")
+                {
+                    Response.Redirect("Principal/DashBoard.aspx");
+                }
+                else if (result.Item2 == "HOD")
+                {
+                    Response.Redirect("HOD/DashBoard.aspx");
+                }
+                else if (result.Item2 == "co-ordinator")
+                {
+                    Response.Redirect("Co_ordinator/DashBoard.aspx");
+                }
+                else if (result.Item2 == "Teacher")
+                {
+                    Response.Redirect("~/Teacher/DashBoard.aspx");
+                }
+            } else if(permission == "NOT")
             {
-                Response.Redirect("Co_ordinator/DashBoard.aspx");
+                Response.Write("<script>alert('You have not permission to access this Account, Content Respestive HOD')</script>");
+                Session.Abandon();
             }
         }
     }

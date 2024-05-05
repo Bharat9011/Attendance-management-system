@@ -65,7 +65,6 @@ namespace Attendance_management_system.HOD
             string value = (row.FindControl("Label1") as Label).Text;
 
             Response.Redirect("ShowCourseDetails.aspx?id=" + value);
-
         }
     }
 }

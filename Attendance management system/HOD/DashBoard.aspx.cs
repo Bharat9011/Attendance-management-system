@@ -36,7 +36,7 @@ namespace Attendance_management_system.HOD
                 tacherCount.Text = reader[0].ToString();
             }
             connection.Close();
-
+                    
         }
 
         private void getSessionDetails()
