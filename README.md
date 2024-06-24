@@ -1,4 +1,4 @@
-
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/baa4c541-dbd1-46ba-a608-b005ad327c75)
 # Attendance Management System
 
 Hey 🙋‍♂️ My Name is Bharat Chaudhari from Nagpur Maharashtra,Bharat(India). I make this project For education system for getting the student Attendance.
@@ -107,46 +107,91 @@ Student List
 
 Something want wrong
 
+Take Attendance
+
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/66675b76-c600-4c01-882e-f35834a1c71f)
+
+
 Show Student Attandance
+
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/8a98a970-7c81-4a43-ae67-03efd10bec1b)
 
 Permission (For access of College Data)
 
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/de498ef0-d772-422a-93f4-d8ad8b198270)
+
 Notification Create
+
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/2800df14-fb69-4460-bba0-0a7e6d924a74)
 
 Sended Notification 
 
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/8a963aa4-d8e6-4597-9c7b-fa1660f59832)
+
 Show All Notification
+
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/dc591904-b9d5-440e-87bf-6799ead13976)
+
+View Notification
+
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/08463253-3dc4-4cbc-9b07-f91b620a46e3)
 
 ### Co-ordinator
 
 DashBoard
 
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/72849d83-ea14-4482-bab1-f4a6b63ec9a4)
+
 Generate Subject
+
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/bee980aa-746c-4718-a73a-7d3a842b550e)
 
 Show Subject
 
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/f97209d8-f2c1-4202-b984-8d3cdc6c1348)
+
 Generate Student Account
+
+![screencapture-localhost-44374-Co-ordinator-StudentAccountCreate-aspx-2024-06-24-17_00_58](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/c11dbe4f-34b0-4bd0-af9f-ecbe33c38500)
 
 Show Student Account
 
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/2b7effa0-d8d7-4d59-9f38-0ff7fcad5c71)
+
 Take Attendance
+
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/f243a29b-8a76-4dcb-8815-9c07d1c8b627)
 
 Show Attendance
 
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/0effdc32-1f08-4b0f-96c6-0dcb64cc6f61)
+
 Notification Create
+
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/57c76e05-1dad-46da-9081-2183aaafde52)
 
 Sended Notification 
 
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/8dda3372-d727-4009-b56f-0507d5036465)
+
 Show All Notification
+
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/537b4451-dd41-40fb-9d88-16793d6d9fa6)
+
+View Notification
+
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/ce291b17-5ce2-4d07-88ae-5ecaf57b5339)
 
 ### Teacher
 
 DashBoard
 
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/7c416cf2-f6e1-4b43-ad20-5827d957c323)
+
 Show Attendance
+
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/40b8845a-dfa1-4ca3-8b8b-72828259b06b)
 
 Notification Create
 
-Sended Notification 
-
-Show All Notification
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/e1e4d4b4-8395-47a4-aaea-004b1357faa7)
