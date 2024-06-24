@@ -76,17 +76,36 @@ Show All Notification
 
 DashBoard
 
-
+![Screenshot (25)](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/7fd003ad-7b50-4116-948e-bb7cd5531a35)
 
 Generate Course
 
+![Screenshot (26)](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/934ec28f-dc93-4d0c-bed5-2712a8e21a14)
+
+
 Show Course (Edit,Delete)
+
+![Screenshot (27)](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/c552f9a6-ffd1-4ba2-adad-c2e5642fac72)
+
+View Course
+
+![Screenshot (28)](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/c35a81bf-fc15-4af6-a966-cf4c853d0134)
 
 Teacher Account Generate
 
+![Screenshot (29)](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/865b4173-660c-4884-979d-d184a7928c27)
+
+Allocate As a Co-Ordinator
+
+![Screenshot (30)](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/168dae9f-062e-4e73-b166-ed1d19ad2349)
+
 Show Teacher Details (Edit,Delete)
 
+![Screenshot (31)](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/4c06d3b2-5a97-4040-8cd8-5a684007f1e0)
+
 Student List
+
+Something want wrong
 
 Show Student Attandance
 
