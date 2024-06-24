@@ -1,4 +1,3 @@
-![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/baa4c541-dbd1-46ba-a608-b005ad327c75)
 # Attendance Management System
 
 Hey 🙋‍♂️ My Name is Bharat Chaudhari from Nagpur Maharashtra,Bharat(India). I make this project For education system for getting the student Attendance.
@@ -105,12 +104,11 @@ Show Teacher Details (Edit,Delete)
 
 Student List
 
-Something want wrong
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/4c794b06-072c-4523-b461-f103fafed805)
 
 Take Attendance
 
 ![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/66675b76-c600-4c01-882e-f35834a1c71f)
-
 
 Show Student Attandance
 
@@ -135,6 +133,10 @@ Show All Notification
 View Notification
 
 ![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/08463253-3dc4-4cbc-9b07-f91b620a46e3)
+
+Notification View
+
+![image](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/baa4c541-dbd1-46ba-a608-b005ad327c75)
 
 ### Co-ordinator
 
