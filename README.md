@@ -21,7 +21,7 @@ In traditional, Attendance system on regular basis only subject teacher can see 
 
 DashBoard
 
-![Screenshot (13)](https://github.com/Bharat9011/Attendance-management-system/assets/97335704/c81a1bd2-473b-4919-9c6d-f3f47a191de7)
+<img src="https://github.com/Bharat9011/Attendance-management-system/assets/97335704/c81a1bd2-473b-4919-9c6d-f3f47a191de7"/>
 
 Generate Department
 
