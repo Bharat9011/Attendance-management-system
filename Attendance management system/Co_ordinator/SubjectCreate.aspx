@@ -11,7 +11,7 @@
 
             <div class="row col-12 col-lx-12 mt-3">
                 <div class="form-group">
-                    <asp:Label Text="Enter the Course name" runat="server" />
+                    <asp:Label Text="Enter the Subject name" runat="server" />
                     <asp:TextBox runat="server" ID="SubjectName" TextMode="SingleLine" CssClass="form-control mt-1" />
                 </div>
             </div>

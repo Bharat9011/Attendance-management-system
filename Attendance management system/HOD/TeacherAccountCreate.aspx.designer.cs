@@ -13,5 +13,13 @@ namespace Attendance_management_system.HOD
 
     public partial class TeacherAccountCreate
     {
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.TextBox DepartmentName;
+        protected global::System.Web.UI.WebControls.TextBox FullName;
+        protected global::System.Web.UI.WebControls.TextBox Emails;
+        protected global::System.Web.UI.WebControls.TextBox Password;
+        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
+        protected global::System.Web.UI.WebControls.Label massage;
+        protected global::System.Web.UI.WebControls.Panel MessageBox1;
     }
 }

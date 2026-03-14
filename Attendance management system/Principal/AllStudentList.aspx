@@ -11,7 +11,7 @@
             <asp:BoundField DataField="StudentContactNumber" HeaderText="Student Contact Number" SortExpression="StudentContactNumber" />
             <asp:BoundField DataField="DepartmentName" HeaderText="Student Department" SortExpression="StudentDepartment" />
             <asp:BoundField DataField="CourseName" HeaderText="Student Course" SortExpression="StudentCourse" />
-            <asp:BoundField DataField="StudentClass" HeaderText="Student Class" SortExpression="StudentClass" />
+            <asp:BoundField DataField="StudentClass" HeaderText="Student Class Year" SortExpression="StudentClass" />
             <asp:BoundField DataField="StudentSeesionYear" HeaderText="Student Seesion Year" SortExpression="StudentSeesionYear" />
         </Columns>
 </asp:GridView>

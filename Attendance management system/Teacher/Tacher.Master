@@ -13,7 +13,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
-        <style>
+    <style>
         .HODHeading {
             width: 81.70%;
             height: 60px;
@@ -24,11 +24,11 @@
             background-color: aquamarine;
         }
 
-        .HODHeading .p {
-            font-size: 20px;
-            line-height: 50px;
-            margin-right: 10px;
-        }
+            .HODHeading .p {
+                font-size: 20px;
+                line-height: 50px;
+                margin-right: 10px;
+            }
 
         .containers {
             width: 20%;
@@ -59,58 +59,58 @@
 <body>
     <form id="form1" runat="server">
         <div>
-    <div style="display: flex; width: 100%;">
+            <div style="display: flex; width: 100%;">
 
-        <div class="containers" style="width: 280px;">
-            <div class="container text-center bg-danger p-3">
-                <a href="DashBoard.aspx" style="text-decoration: none;">
-                    <strong><span style="color: white; font-size: larger; letter-spacing: 2px;">DashBoard</span></strong>
-                </a>
-            </div>
-            <div>
+                <div class="containers" style="width: 280px;">
+                    <div class="container text-center bg-danger p-3">
+                        <a href="DashBoard.aspx" style="text-decoration: none;">
+                            <strong><span style="color: white; font-size: larger; letter-spacing: 2px;">DashBoard</span></strong>
+                        </a>
+                    </div>
+                    <div>
 
-                <div class="container text-black bg-light my-3 p-1">
-                    <span style="cursor: pointer;" class="p-3 my-2"><a class="text-decoration-none text-black" href="ShowStudentAttendance.aspx">Show Attendance</a></span>
+                        <div class="container text-black bg-light my-3 p-1">
+                            <span style="cursor: pointer;" class="p-3 my-2"><a class="text-decoration-none text-black" href="ShowStudentAttendance.aspx">Show Attendance</a></span>
+                        </div>
+
+                        <div class="container text-black bg-light my-3 p-1">
+                            <span style="cursor: pointer;" class="p-3 my-2"><a class="text-decoration-none text-black" href="ShowNotification.aspx">Show Notification</a></span>
+                        </div>
+
+                    </div>
                 </div>
 
-               <div class="container text-black bg-light my-3 p-1">
-                    <span style="cursor: pointer;" class="p-3 my-2"><a class="text-decoration-none text-black" href="ShowNotification.aspx">Show Notification</a></span>
+                <div class="HODHeading" style="display: flex;" runat="server" id="Header">
+                    <div style="width: 50%; height: inherit; display: flex; justify-content: center; align-content: center;">
+                        <div style="width: 25%; height: 100%;">
+                            <a href="https://mohotasci.edu.in">
+                                <img src="../Image/logo.png" class="img-fluid" style="width: 45px; height: 45px; margin-top: 10px;" alt="logo not found">
+                            </a>
+                        </div>
+
+                        <div style="width: 75%; height: 100%; margin-left: 10px;">
+                            <a href="https://mohotasci.edu.in">
+                                <p style="line-height: 60px; float: left; margin-left: 0px; font-size: 20px;"><strong>Shri MathuraDas mohota college of sciense</strong></p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div style="width: 50%; height: inherit; float: left; line-height: 60px;">
+                        <strong>
+                            <asp:Label runat="server" class="p" Text="hello" ID="Hname"></asp:Label></strong>
+                        <button style="background-color: transparent; border: none;" runat="server" onserverclick="Unnamed_ServerClick">
+                            <i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i>
+                        </button>
+                    </div>
                 </div>
 
+                <div id="contentplaceholder" style="padding: 11px; background: rgba(242,244,244,255); margin-top: 61px; overflow: auto;">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
             </div>
         </div>
 
-        <div class="HODHeading" style="display: flex;" runat="server" id="Header">
-            <div style="width: 50%; height: inherit; display: flex; justify-content: center; align-content: center;">
-                <div style="width: 25%; height: 100%;">
-                    <a href="https://mohotasci.edu.in">
-                        <img src="../Image/logo.png" class="img-fluid" style="width: 45px; height: 45px; margin-top: 10px;" alt="logo not found">
-                    </a>
-                </div>
-
-                <div style="width: 75%; height: 100%; margin-left: 10px;">
-                    <a href="https://mohotasci.edu.in">
-                        <p style="line-height: 60px; float: left; margin-left: 0px; font-size: 20px;"><strong>Shri MathuraDas mohota college of sciense</strong></p>
-                    </a>
-                </div>
-            </div>
-
-            <div style="width: 50%; height: inherit; float: left; line-height: 60px;">
-                <strong>
-                    <asp:Label runat="server" class="p" Text="hello" ID="Hname"></asp:Label></strong>
-                <button style="background-color: transparent; border: none;" runat="server" onserverclick="Unnamed_ServerClick">
-    <i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i>
-</button>
-            </div>
-        </div>
-
-        <div id="contentplaceholder" style="padding: 11px; background: rgba(242,244,244,255); margin-top: 61px; overflow: auto;">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-        </div>
-            </div>
-        
     </form>
 </body>
 </html>

@@ -13,5 +13,11 @@ namespace Attendance_management_system.Principal
 
     public partial class UpdateProfile
     {
+        protected global::System.Web.UI.WebControls.TextBox Name;
+        protected global::System.Web.UI.WebControls.TextBox Email;
+        protected global::System.Web.UI.WebControls.DropDownList Role1;
+        protected global::System.Web.UI.WebControls.DropDownList Role2;
+        protected global::System.Web.UI.WebControls.TextBox Password;
+        protected global::System.Web.UI.WebControls.TextBox Department;
     }
 }

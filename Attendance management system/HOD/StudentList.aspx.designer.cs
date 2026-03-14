@@ -13,5 +13,6 @@ namespace Attendance_management_system.HOD
 
     public partial class StudentList
     {
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

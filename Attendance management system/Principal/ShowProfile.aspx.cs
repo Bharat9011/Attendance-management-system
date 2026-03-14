@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace Attendance_management_system.Principal
 {
-    public partial class ShowProfile : System.Web.UI.Page
+    public partial class UpdateProfile : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

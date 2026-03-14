@@ -13,5 +13,6 @@ namespace Attendance_management_system.Co_ordinator
 
     public partial class TakeAttendance
     {
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

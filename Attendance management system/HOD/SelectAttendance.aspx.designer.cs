@@ -10,8 +10,8 @@
 namespace Attendance_management_system.HOD
 {
 
-
     public partial class SelectAttendance
     {
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

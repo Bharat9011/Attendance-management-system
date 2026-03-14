@@ -126,8 +126,5 @@ namespace Attendance_management_system.DataBase
             sqlr.Close();
             return i;
         }
-
-
-
     }
 }

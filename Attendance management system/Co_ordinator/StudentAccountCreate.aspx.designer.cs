@@ -13,5 +13,14 @@ namespace Attendance_management_system.Co_ordinator
 
     public partial class StudentAccountCreate
     {
+        protected global::System.Web.UI.WebControls.TextBox SubjectName;
+        protected global::System.Web.UI.WebControls.TextBox email;
+        protected global::System.Web.UI.WebControls.TextBox number;
+        protected global::System.Web.UI.WebControls.TextBox department;
+        protected global::System.Web.UI.WebControls.TextBox course;
+        protected global::System.Web.UI.WebControls.DropDownList Year;
+        protected global::System.Web.UI.WebControls.TextBox sessionYear;
+        protected global::System.Web.UI.WebControls.TextBox Password;
+        protected global::System.Web.UI.WebControls.DropDownList Semister;
     }
 }

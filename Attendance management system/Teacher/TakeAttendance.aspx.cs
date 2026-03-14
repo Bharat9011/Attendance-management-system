@@ -54,7 +54,7 @@ namespace Attendance_management_system.Teacher
 
         private void GetTime()
         {
-            time.Text = DateTime.Now.ToString();
+            time.Text = DateTime.Now.ToString("yyyy-MM-dd hh:MM:ss");
         }
 
         private void GetAttendanceData()
@@ -157,6 +157,11 @@ namespace Attendance_management_system.Teacher
             {
                 Response.Write("<script>alert('Something want wrong')</script>");
             }
+        }
+
+        private String GetSubmitTime()
+        {
+            return DateTime.Now.ToString("dd-MM-yyyy");
         }
 
         private void GetStudentData()

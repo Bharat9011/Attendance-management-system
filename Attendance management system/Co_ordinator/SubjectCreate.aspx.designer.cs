@@ -13,5 +13,11 @@ namespace Attendance_management_system.Co_ordinator
 
     public partial class SubjectCreate
     {
+        protected global::System.Web.UI.WebControls.TextBox course;
+        protected global::System.Web.UI.WebControls.TextBox Department;
+        protected global::System.Web.UI.WebControls.TextBox SubjectName;
+        protected global::System.Web.UI.WebControls.TextBox SubjectTeacher;
+        protected global::System.Web.UI.WebControls.TextBox Year;
+        protected global::System.Web.UI.WebControls.TextBox Semister;
     }
 }

@@ -13,5 +13,6 @@ namespace Attendance_management_system.HOD
 
     public partial class ShowTeacherDeatail
     {
+        protected global::System.Web.UI.WebControls.GridView GridView2;
     }
 }

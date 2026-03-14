@@ -13,5 +13,7 @@ namespace Attendance_management_system.HOD
 
     public partial class CreateCourse
     {
+        protected global::System.Web.UI.WebControls.TextBox CourseName;
+        protected global::System.Web.UI.WebControls.TextBox Department;
     }
 }

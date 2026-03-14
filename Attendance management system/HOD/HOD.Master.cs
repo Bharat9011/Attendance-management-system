@@ -31,7 +31,7 @@ namespace Attendance_management_system.HOD
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                HODName.Text = reader["Name"].ToString();
+                Hname.Text = reader["Name"].ToString();
             }
             reader.Close();
         }

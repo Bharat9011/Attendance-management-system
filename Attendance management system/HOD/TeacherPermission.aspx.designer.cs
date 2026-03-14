@@ -13,5 +13,9 @@ namespace Attendance_management_system.HOD
 
     public partial class TeacherPermission
     {
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Label NotAllow;
+        protected global::System.Web.UI.WebControls.Label Allow;
     }
 }

@@ -13,5 +13,8 @@ namespace Attendance_management_system.Principal
 
     public partial class CreateNotification
     {
+        protected global::System.Web.UI.WebControls.TextBox Notification_Title;
+        protected global::System.Web.UI.WebControls.TextBox Notification_Desciption;
+        protected global::System.Web.UI.WebControls.DropDownList To;
     }
 }

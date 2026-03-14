@@ -20,7 +20,42 @@ namespace Attendance_management_system.Principal
             {
                 GetDCount();
                 GetTeacher();
+                GetCountPresnt();
             }
+        }
+
+        private void GetCountPresnt()
+        {
+
+            string time = DateTime.Now.ToString();
+
+            SqlConnection connection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            connection.Open();
+            string s = "select * from Attendance";
+            SqlCommand sqlCommand = new SqlCommand(s, connection);
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                showCount(time, reader[2].ToString());
+            }
+            connection.Close();
+        }
+
+        private void showCount(string time,string ctime)
+        {
+
+            int count = 0;
+
+            string[] day = time.Split(' ');
+            string[] cday = ctime.Split(' ');
+
+            if (day[0] == cday[0])
+            {
+                count++;
+            }
+
+            presents.Text = count.ToString();
+
         }
 
         private void GetTeacher()

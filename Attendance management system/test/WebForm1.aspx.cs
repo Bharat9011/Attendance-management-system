@@ -23,19 +23,21 @@ namespace Attendance_management_system.test
 
         }
 
-        private DataTable Fab(string data, string year)
+        private DataTable Fab(string date, string year)
         {
-            DataTable fab = new DataTable(); ;
+            DataTable ab = new DataTable(); ;
 
-            if (data == "May")
+            if (date == "May")
             {
 
                 for (int j = 1; j <= 31; j++)
                 {
-                    fab.Columns.Add(j + "/" + data + "/" + year, typeof(string));
+                    ab.Columns.Add(j + "/" + date + "/" + year, typeof(string));
                 }
 
-                for(int a = 1;  a < 31; a++)
+                int studentLen = 10;
+
+                for (int a = 1;  a < studentLen; a++)
                 {
                     /*fab.Rows.Add(k,);
 */
@@ -43,7 +45,7 @@ namespace Attendance_management_system.test
                     {*/
                         /*DataRow row = fab.NewRow();
                         row[a + "/" + data + "/" + year] = a;*/
-                        fab.Rows.Add(a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a);
+                        ab.Rows.Add(a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a);
                     /*}*/
                 }
 
@@ -89,26 +91,26 @@ namespace Attendance_management_system.test
 
 
             /*fab.Columns.Add("1/"+data+"/"+year, typeof(string));
-fab.Columns.Add("2/" + data + "/" + year, typeof(string));
-fab.Columns.Add("3/" + data + "/" + year, typeof(string));
-fab.Columns.Add("4/" + data + "/" + year, typeof(string));
-fab.Columns.Add("5/" + data + "/" + year, typeof(string));
-fab.Columns.Add("6/" + data + "/" + year, typeof(string));
-fab.Columns.Add("7/" + data + "/" + year, typeof(string));
-fab.Columns.Add("8/" + data + "/" + year, typeof(string));
-fab.Columns.Add("9/" + data + "/" + year, typeof(string));
-fab.Columns.Add("10/" + data + "/" + year, typeof(string));
-fab.Columns.Add("11/" + data + "/" + year, typeof(string));
-fab.Columns.Add("12/" + data + "/" + year, typeof(string));
-fab.Columns.Add("13/" + data + "/" + year, typeof(string));
-fab.Columns.Add("14/" + data + "/" + year, typeof(string));
-fab.Columns.Add("15/" + data + "/" + year, typeof(string));
-fab.Columns.Add("16/" + data + "/" + year, typeof(string));
-fab.Columns.Add("17/" + data + "/" + year, typeof(string));
-fab.Columns.Add("18/" + data + "/" + year, typeof(string));
-fab.Columns.Add("19/" + data + "/" + year, typeof(string));
-fab.Columns.Add("20/" + data + "/" + year, typeof(string));
-fab.Columns.Add("21/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("2/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("3/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("4/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("5/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("6/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("7/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("8/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("9/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("10/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("11/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("12/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("13/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("14/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("15/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("16/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("17/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("18/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("19/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("20/" + data + "/" + year, typeof(string));
+            fab.Columns.Add("21/" + data + "/" + year, typeof(string));
 */
 
             /*          dataRow["2/" + data + "/" + year] = 23;
@@ -146,7 +148,7 @@ fab.Columns.Add("21/" + data + "/" + year, typeof(string));
                         dataRow1["9/" + data + "/" + year] = 23;
                         dataRow1["10/" + data + "/" + year] = 23;*/
             /*fab.Rows.Add(dataRow1);*/
-            return fab;
+            return ab;
         }
 
 

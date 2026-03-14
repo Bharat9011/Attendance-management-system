@@ -30,7 +30,7 @@ namespace Attendance_management_system.Principal
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                PrincipalName.Text = reader["Name"].ToString();
+                Hname.Text = reader["Name"].ToString();
             }
             reader.Close();
         }

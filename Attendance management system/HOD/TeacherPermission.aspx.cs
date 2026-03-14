@@ -16,8 +16,11 @@ namespace Attendance_management_system.HOD
                 Response.Redirect("~/Default.aspx");
             } else
             {
-                SessionDetaile();
-                GetData();
+                if (!IsPostBack)
+                {
+                    SessionDetaile();
+                    GetData();
+                }
             }
         }
 

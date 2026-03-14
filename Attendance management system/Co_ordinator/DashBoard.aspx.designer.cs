@@ -13,5 +13,7 @@ namespace Attendance_management_system.Co_ordinator
 
     public partial class DashBoard
     {
+        protected global::System.Web.UI.WebControls.Label tacherCount;
+        protected global::System.Web.UI.WebControls.Label DepartmentCount;
     }
 }

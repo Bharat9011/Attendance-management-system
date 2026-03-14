@@ -13,5 +13,10 @@ namespace Attendance_management_system.HOD
 
     public partial class teacherDetails
     {
+        protected global::System.Web.UI.WebControls.TextBox Name;
+        protected global::System.Web.UI.WebControls.TextBox EmailID;
+        protected global::System.Web.UI.WebControls.TextBox Role;
+        protected global::System.Web.UI.WebControls.TextBox DepartmentName;
+        protected global::System.Web.UI.WebControls.TextBox permission;
     }
 }

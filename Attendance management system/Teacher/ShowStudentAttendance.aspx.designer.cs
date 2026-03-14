@@ -13,5 +13,6 @@ namespace Attendance_management_system.Teacher
 
     public partial class ShowStudentAttendance
     {
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

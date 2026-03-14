@@ -52,7 +52,7 @@ namespace Attendance_management_system.Co_ordinator
 
         private void GetTime()
         {
-            time.Text = DateTime.Now.ToString();
+            time.Text = DateTime.Now.ToString("yyyy-MM-dd hh:MM:ss");
         }
 
         private void GetAttendanceData()

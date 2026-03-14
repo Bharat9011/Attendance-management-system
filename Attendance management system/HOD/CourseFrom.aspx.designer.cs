@@ -13,5 +13,8 @@ namespace Attendance_management_system.HOD
 
     public partial class CourseFrom
     {
+        protected global::System.Web.UI.WebControls.TextBox CourseName;
+        protected global::System.Web.UI.WebControls.DropDownList co_ordinator;
+        protected global::System.Web.UI.WebControls.DropDownList Department;
     }
 }

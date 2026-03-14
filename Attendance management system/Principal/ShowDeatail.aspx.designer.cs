@@ -13,5 +13,7 @@ namespace Attendance_management_system.Principal
 
     public partial class ShowDeatail
     {
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

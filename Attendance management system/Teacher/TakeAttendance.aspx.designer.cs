@@ -13,5 +13,8 @@ namespace Attendance_management_system.Teacher
 
     public partial class TakeAttendance
     {
+        protected global::System.Web.UI.WebControls.TextBox time;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.TextBox Lecture_Topic;
     }
 }

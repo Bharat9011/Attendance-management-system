@@ -13,5 +13,6 @@ namespace Attendance_management_system.Principal
 
     public partial class ShowNotification
     {
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

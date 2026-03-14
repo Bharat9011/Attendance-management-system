@@ -13,7 +13,7 @@ namespace Attendance_management_system.Co_ordinator
         {
             if (Session["AccountID"] == null)
             {
-                Response.Redirect("~./Default.aspx");
+                Response.Redirect("~/Default.aspx");
             }
         }
 
