@@ -10,6 +10,8 @@ namespace Attendance_management_system.Co_ordinator
 {
     public partial class DashBoard : System.Web.UI.Page
     {
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
@@ -24,7 +26,7 @@ namespace Attendance_management_system.Co_ordinator
 
         private void GetTotalStudent()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select COUNT(*) from StudentDetails where CreateBy=" + Session["AccountID"];
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
@@ -38,7 +40,7 @@ namespace Attendance_management_system.Co_ordinator
 
         private void GetTotalSubject()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select COUNT(*) from SubjectTable where SubjectCreateBy=" + Session["AccountID"];
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);

@@ -10,6 +10,7 @@ namespace Attendance_management_system.Principal
 {
     public partial class NotificationDetails : System.Web.UI.Page
     {
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
@@ -26,7 +27,7 @@ namespace Attendance_management_system.Principal
         {
             string id = Request.QueryString["id"];
 
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select * from Notification where id=" + id;
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);

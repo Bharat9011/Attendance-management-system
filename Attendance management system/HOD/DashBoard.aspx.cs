@@ -11,6 +11,7 @@ namespace Attendance_management_system.HOD
     public partial class DashBoard : System.Web.UI.Page
     {
         String departmentname = "";
+        private static readonly string connections = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
@@ -26,7 +27,7 @@ namespace Attendance_management_system.HOD
 
         private void getTeacherCount()
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection connection = new SqlConnection(connections);
             connection.Open();
             string s = "select count(*) from TeacherstaffDetail where DepatmentName='" + departmentname + "' AND (role1='co-ordinator' OR role1='Teacher')";
             SqlCommand sqlCommand = new SqlCommand(s, connection);
@@ -41,7 +42,7 @@ namespace Attendance_management_system.HOD
 
         private void getSessionDetails()
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection connection = new SqlConnection(connections);
             connection.Open();
             String s = "select DepatmentName from TeacherstaffDetail where id=" + Session["AccountID"];
             SqlCommand sqlCommand = new SqlCommand(s, connection);
@@ -58,7 +59,7 @@ namespace Attendance_management_system.HOD
 
         private void getCourseNumber()
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection connection = new SqlConnection(connections);
             connection.Open();
             string s = "select count(*) from CourseDeatil where DepartmentName='" + departmentname + "'";
             SqlCommand sqlCommand = new SqlCommand(s, connection);

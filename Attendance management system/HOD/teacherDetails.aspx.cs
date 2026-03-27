@@ -12,6 +12,7 @@ namespace Attendance_management_system.HOD
 {
     public partial class teacherDetails : System.Web.UI.Page
     {
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
@@ -28,7 +29,7 @@ namespace Attendance_management_system.HOD
 
             string id = Request.QueryString["id"];
 
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string getData = "select * from TeacherstaffDetail where id=" + id;
             SqlCommand sqlCommand = new SqlCommand(getData, sqlConnection);
@@ -49,7 +50,7 @@ namespace Attendance_management_system.HOD
 
         protected void Unnamed_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string update = "UPDATE [dbo].[TeacherstaffDetail] SET [name] = '' ,[email] = '',[password] = '',[role1] = '',[DepatmentName] = '',[permission] = '' WHERE id=''";
             SqlCommand sqlCommand = new SqlCommand(update, sqlConnection);

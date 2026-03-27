@@ -10,6 +10,7 @@ namespace Attendance_management_system.HOD
     {
 
         string departmentName = "";
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,7 +27,7 @@ namespace Attendance_management_system.HOD
 
         private void ShowDataGridView()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string q = "SELECT [id], [CourseName], [Co_ordinator], [DepartmentName] FROM [CourseDeatil] where DepartmentName='" + departmentName + "'";
             SqlCommand sqlCommand = new SqlCommand(q, sqlConnection);
@@ -46,7 +47,7 @@ namespace Attendance_management_system.HOD
 
         private void SessionDetaile()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string q = "select DepatmentName from TeacherstaffDetail where id=" + Session["AccountID"];
             SqlCommand sqlCommand = new SqlCommand(q, sqlConnection);

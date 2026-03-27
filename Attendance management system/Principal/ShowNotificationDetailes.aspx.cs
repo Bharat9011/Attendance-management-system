@@ -11,6 +11,7 @@ namespace Attendance_management_system.Principal
 {
     public partial class ShowNotificationDetailes : System.Web.UI.Page
     {
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
@@ -24,7 +25,7 @@ namespace Attendance_management_system.Principal
 
         private void SetDataInGridView()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "SELECT id,NotificationTitle,Notification_Desciption FROM Notification";
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);

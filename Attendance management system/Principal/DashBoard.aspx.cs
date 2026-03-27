@@ -10,6 +10,8 @@ namespace Attendance_management_system.Principal
 {
     public partial class DashBoard : System.Web.UI.Page
     {
+        private static readonly string connections = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
@@ -29,9 +31,9 @@ namespace Attendance_management_system.Principal
 
             string time = DateTime.Now.ToString();
 
-            SqlConnection connection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection connection = new SqlConnection(connections);
             connection.Open();
-            string s = "select * from Attendance";
+            string s = "select * from AttendanceRecord";
             SqlCommand sqlCommand = new SqlCommand(s, connection);
             SqlDataReader reader = sqlCommand.ExecuteReader();
             while (reader.Read())
@@ -60,7 +62,7 @@ namespace Attendance_management_system.Principal
 
         private void GetTeacher()
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection connection = new SqlConnection(connections);
             connection.Open();
             string s = "select count(*) from TeacherstaffDetail";
             SqlCommand sqlCommand = new SqlCommand(s, connection);
@@ -76,7 +78,7 @@ namespace Attendance_management_system.Principal
         private void GetDCount()
         {
             
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connections);
             sqlConnection.Open();
             string s = "SELECT COUNT(*) from DepartmentDetail";
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);

@@ -8,7 +8,7 @@ namespace Attendance_management_system.HOD
     public partial class TeacherPermission : System.Web.UI.Page
     {
         string departmentName = "";
-        
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
@@ -26,7 +26,7 @@ namespace Attendance_management_system.HOD
 
         private void GetData()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string q = "SELECT [id],[name] FROM [dbo].[TeacherstaffDetail] where DepatmentName='" + departmentName + "' AND (role1 = 'teacher' OR role1 = 'co-ordinator')";
             SqlCommand sqlCommand = new SqlCommand(q, sqlConnection);
@@ -44,7 +44,7 @@ namespace Attendance_management_system.HOD
 
         private void SessionDetaile()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string q = "select DepatmentName from TeacherstaffDetail where id=" + Session["AccountID"];
             SqlCommand sqlCommand = new SqlCommand(q, sqlConnection);
@@ -60,7 +60,7 @@ namespace Attendance_management_system.HOD
         {
             string id = DropDownList1.SelectedValue;
 
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             string s = "select id,name,permission from TeacherstaffDetail where id=" + id;
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
@@ -83,7 +83,7 @@ namespace Attendance_management_system.HOD
         {
             string id = DropDownList1.SelectedValue;
 
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "UPDATE TeacherstaffDetail SET [permission]='YES' WHERE id=" + id;
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
@@ -94,7 +94,7 @@ namespace Attendance_management_system.HOD
         {
             string id = DropDownList1.SelectedValue;
 
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "UPDATE TeacherstaffDetail SET [permission]='NOT' WHERE id=" + id;
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);

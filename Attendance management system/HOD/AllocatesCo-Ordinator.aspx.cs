@@ -7,6 +7,8 @@ namespace Attendance_management_system.HOD
     public partial class AllocatesCo_Ordinator : System.Web.UI.Page
     {
         string DepartmentName = "";
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
@@ -25,7 +27,7 @@ namespace Attendance_management_system.HOD
 
         private void GetTeacherData()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "SELECT [id],[name] FROM [TeacherstaffDetail] where DepatmentName='" + DepartmentName + "'";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(s, sqlConnection);
@@ -40,7 +42,7 @@ namespace Attendance_management_system.HOD
 
         private void GetCourseData()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "SELECT [id],[CourseName] FROM [CourseDeatil] where DepartmentName='" + DepartmentName + "'";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(s, sqlConnection);
@@ -55,7 +57,7 @@ namespace Attendance_management_system.HOD
 
         private void GetDepartmentData()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "SELECT [DepatmentName] FROM [TeacherstaffDetail] where id='" + Session["AccountID"] + "'";
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
@@ -82,7 +84,7 @@ namespace Attendance_management_system.HOD
                 {
                     if (CheckCo_OrdinatorAllocated(department))
                     {
-                        SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+                        SqlConnection sqlConnection = new SqlConnection(connection);
                         sqlConnection.Open();
                         string u = "UPDATE [dbo].[CourseDeatil] SET [Co_ordinator] = '" + department + "' WHERE CourseName='" + course + "' and DepartmentName='" + DepartmentName + "'";
                         SqlCommand sqlCommand = new SqlCommand(u, sqlConnection);
@@ -111,7 +113,7 @@ namespace Attendance_management_system.HOD
 
             string course = "";
 
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select * from CourseDeatil where Co_ordinator='"+DepartmentName+"' and CourseName IS NOT NULL";
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
@@ -135,7 +137,7 @@ namespace Attendance_management_system.HOD
 
             string course = "";
 
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select * from CourseDeatil where CourseName='"+ coursename + "' and Co_ordinator IS NOT NULL and DepartmentName='"+ DepartmentName + "'";
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
@@ -157,7 +159,7 @@ namespace Attendance_management_system.HOD
         {
             string course = "";
 
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select CourseName from CourseDeatil where id=" + coursename;
             SqlCommand sqlCommand = new SqlCommand(s,sqlConnection);
@@ -175,7 +177,7 @@ namespace Attendance_management_system.HOD
         {
             string Department = "";
 
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select name from TeacherstaffDetail where id=" + department;
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
@@ -192,7 +194,7 @@ namespace Attendance_management_system.HOD
         {
             int i = 0;
 
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "SELECT [CourseName],[Co_ordinator] FROM [CourseDeatil] where CourseName='" + CName + "' and Co_ordinator='"+COOrdinator+"'";
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);

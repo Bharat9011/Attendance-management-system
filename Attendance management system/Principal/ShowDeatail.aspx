@@ -83,7 +83,7 @@
 
         </div>
 
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AMSConnectionString2 %>" SelectCommand="SELECT [id],[name], [email], [password], [role1], [DepatmentName],[permission] FROM [TeacherstaffDetail] WHERE ([role1] = @role1)">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AMSConnectionString1 %>" SelectCommand="SELECT [id],[name], [email], [password], [role1], [DepatmentName],[permission] FROM [TeacherstaffDetail] WHERE ([role1] = @role1)">
             <SelectParameters>
                 <asp:Parameter DefaultValue="HOD" Name="role1" Type="String" />
             </SelectParameters>

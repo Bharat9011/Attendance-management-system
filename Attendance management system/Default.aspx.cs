@@ -2,6 +2,7 @@
 using Attendance_management_system.Principal;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -28,7 +29,8 @@ namespace Attendance_management_system
 
             string permission = "";
 
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            string conn = ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
+            SqlConnection sqlConnection = new SqlConnection(conn);
             sqlConnection.Open();
             string s = "select permission from TeacherstaffDetail where id=" + Session["AccountID"];
             SqlCommand sqlCommand = new SqlCommand(s,sqlConnection);

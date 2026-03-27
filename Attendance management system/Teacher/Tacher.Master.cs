@@ -11,6 +11,8 @@ namespace Attendance_management_system.Teacher
 {
     public partial class Tacher : System.Web.UI.MasterPage
     {
+
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             GetTeacherName();
@@ -18,7 +20,7 @@ namespace Attendance_management_system.Teacher
 
         private void GetTeacherName()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select name from TeacherstaffDetail where id=" + Session["AccountID"];
             SqlCommand cmd = new SqlCommand(s, sqlConnection);

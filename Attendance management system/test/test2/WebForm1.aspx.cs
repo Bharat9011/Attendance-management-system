@@ -10,6 +10,8 @@ namespace Attendance_management_system.test.test2
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             GetData();
@@ -17,7 +19,7 @@ namespace Attendance_management_system.test.test2
 
         private void GetData()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select [StudentName],[Time] from [Attendance]";
             SqlCommand cmd = new SqlCommand(s,sqlConnection);

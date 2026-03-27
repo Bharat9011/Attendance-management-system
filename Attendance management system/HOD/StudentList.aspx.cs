@@ -13,6 +13,7 @@ namespace Attendance_management_system.HOD
     {
         string department = "";
         int DepartmentID;
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
@@ -28,7 +29,7 @@ namespace Attendance_management_system.HOD
 
         private void GetDepartmentID()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select id from DepartmentDetail where DepartmentName='"+ department +"'";
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
@@ -41,7 +42,7 @@ namespace Attendance_management_system.HOD
 
         private void GetDepartment()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select DepatmentName from TeacherstaffDetail where id=" + Session["AccountID"];
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
@@ -54,7 +55,7 @@ namespace Attendance_management_system.HOD
 
         private void GetStudentList()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "SELECT n.[id],n.[StudentName],n.[StudentEmail],n.[StudentContactNumber],f.DepartmentName,c.CourseName,n.[StudentClass],n.[StudentSeesionYear],n.[StudentPassword],n.[Semister] FROM [StudentDetails] n join DepartmentDetail f on n.StudentDepartment = f.id join CourseDeatil c on n.StudentCourse = c.id where n.StudentDepartment = '"+ DepartmentID +"'";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(s,sqlConnection);

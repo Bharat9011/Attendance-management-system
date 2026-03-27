@@ -16,6 +16,8 @@ namespace Attendance_management_system.Co_ordinator
         string year, semister;
         string studentID;
         int StudentCount = 1;
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
@@ -37,7 +39,7 @@ namespace Attendance_management_system.Co_ordinator
         private string GetIDName()
         {
             string TeacherName = "";
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select [name] from TeacherstaffDetail where id=" + Session["AccountID"];
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
@@ -57,7 +59,7 @@ namespace Attendance_management_system.Co_ordinator
 
         private void GetAttendanceData()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "SELECT n.[id],n.[StudentName],t.DepartmentName,p.CourseName from [StudentDetails] n join DepartmentDetail t on n.StudentDepartment = t.id join CourseDeatil p on n.StudentCourse = p.id where n.StudentDepartment='" + StudentDepartment + "' or n.StudentCourse='" + StudentCourse + "'";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(s, sqlConnection);
@@ -72,7 +74,7 @@ namespace Attendance_management_system.Co_ordinator
 
         private void GetData()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select [SubjectDepartmentID],[SubjctCourseID] from SubjectTable where id=" + Request.QueryString["id"];
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
@@ -88,7 +90,7 @@ namespace Attendance_management_system.Co_ordinator
         private string GetDataName()
         {
             string SubjectName = "";
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select [SubjectName] from SubjectTable where id=" + Request.QueryString["id"];
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
@@ -103,7 +105,7 @@ namespace Attendance_management_system.Co_ordinator
 
         public void TakeAttendances(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
 
             string LtopicName = Lecture_Topic.Text;
@@ -161,7 +163,7 @@ namespace Attendance_management_system.Co_ordinator
         {
             if (StudentCount == 1)
             {
-                SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+                SqlConnection sqlConnection = new SqlConnection(connection);
                 sqlConnection.Open();
                 string s = "select [StudentClass],[Semister],[StudentSeesionYear] from [StudentDetails] where id=" + studentID;
                 SqlCommand cmd = new SqlCommand(s, sqlConnection);

@@ -6,7 +6,7 @@ namespace Attendance_management_system.DataBase
 {
     public class Database
     {
-        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString"].ConnectionString;
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
         readonly SqlCommand cmd;
         readonly SqlConnection sql;
         SqlDataReader sqlr;
@@ -18,18 +18,32 @@ namespace Attendance_management_system.DataBase
             cmd = sql.CreateCommand();
         }
 
-        public (int, string) Login(string Email, string password)
+        public (int, string) Login(String email, String password)
         {
             int id = 0;
-            String type = "none";
-            cmd.CommandText = "select id,email,password,role1 from TeacherstaffDetail where email='" + Email + "' and password='" + password + "'";
-            sqlr = cmd.ExecuteReader();
-            while (sqlr.Read())
+            string type = "none";
+
+            using (SqlConnection sql = new SqlConnection(connection))
             {
-                id = int.Parse(sqlr[0].ToString().Trim());
-                type = sqlr[3].ToString().Trim();
+                sql.Open();
+
+                using (SqlCommand cmd = new SqlCommand(
+                    "SELECT id, role1 FROM TeacherstaffDetail WHERE email=@Email AND password=@Password", sql))
+                {
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Password", password);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            id = reader.GetInt32(0);
+                            type = reader.GetString(1);
+                        }
+                    }
+                }
             }
-            sqlr.Close();
+
             return (id, type);
         }
 

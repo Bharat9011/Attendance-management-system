@@ -11,6 +11,7 @@ namespace Attendance_management_system.HOD
 {
     public partial class LectureAttendance : System.Web.UI.Page
     {
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
@@ -25,7 +26,7 @@ namespace Attendance_management_system.HOD
 
         private void GetDataTeacher()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select * from Attendance where AttendanBy='" + GetTeacherName() + "'";
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(s, sqlConnection);
@@ -41,7 +42,7 @@ namespace Attendance_management_system.HOD
         private string GetTeacherName()
         {
             string TeacherName = "";
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select [name] from TeacherstaffDetail where id=" + Session["AccountID"];
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);

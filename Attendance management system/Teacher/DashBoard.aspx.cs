@@ -12,6 +12,7 @@ namespace Attendance_management_system.Teacher
 {
     public partial class DashBoard : System.Web.UI.Page
     {
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
@@ -25,7 +26,7 @@ namespace Attendance_management_system.Teacher
 
         private void GetDataTeacher()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select id,SubjectName,Year,Semister from SubjectTable where SubjectTeacher='" + Session["AccountID"] +"'";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(s,sqlConnection);

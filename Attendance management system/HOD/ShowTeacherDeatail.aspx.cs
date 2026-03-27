@@ -12,6 +12,7 @@ namespace Attendance_management_system.HOD
     public partial class ShowTeacherDeatail : System.Web.UI.Page
     {
         string departmentName = "";
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
@@ -26,7 +27,7 @@ namespace Attendance_management_system.HOD
 
         private void ShowDataGridView()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string q = "SELECT [id],[name],[email],[password],[role1],[DepatmentName],[permission] FROM [dbo].[TeacherstaffDetail] where DepatmentName='" + departmentName + "' AND (role1 = 'teacher' OR role1 = 'co-ordinator')";
             SqlCommand sqlCommand = new SqlCommand(q, sqlConnection);
@@ -46,7 +47,7 @@ namespace Attendance_management_system.HOD
 
         private void SessionDetaile()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string q = "select DepatmentName from TeacherstaffDetail where id=" + Session["AccountID"];
             SqlCommand sqlCommand = new SqlCommand(q, sqlConnection);

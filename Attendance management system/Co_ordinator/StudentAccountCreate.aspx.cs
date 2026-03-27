@@ -11,6 +11,7 @@ namespace Attendance_management_system.Co_ordinator
 {
     public partial class StudentAccountCreate : System.Web.UI.Page
     {
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
         string CourseName = "";
         string DepartmentName = "";
         int CourseID;
@@ -35,7 +36,7 @@ namespace Attendance_management_system.Co_ordinator
 
         private void GetDepartmentID()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select id from DepartmentDetail where DepartmentName='" + DepartmentName + "'";
             SqlCommand cmd = new SqlCommand(s, sqlConnection);
@@ -49,7 +50,7 @@ namespace Attendance_management_system.Co_ordinator
 
         private void GetCourse()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select id,CourseName from CourseDeatil where Co_ordinator='" + CourseName+ "'";
             SqlCommand cmd = new SqlCommand(s, sqlConnection);
@@ -64,7 +65,7 @@ namespace Attendance_management_system.Co_ordinator
 
         private void GetDepartmentName()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select name,DepatmentName from TeacherstaffDetail where id=" + Session["AccountID"];
             SqlCommand cmd = new SqlCommand(s,sqlConnection);
@@ -115,7 +116,7 @@ namespace Attendance_management_system.Co_ordinator
                                             {
                                                 if (semiste != string.Empty)
                                                 {
-                                                    SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+                                                    SqlConnection sqlConnection = new SqlConnection(connection);
                                                     sqlConnection.Open();
                                                     string insert = "INSERT INTO [dbo].[StudentDetails] ([StudentName],[StudentEmail],[StudentContactNumber],[StudentDepartment],[StudentCourse],[StudentClass],[StudentSeesionYear],[StudentPassword],[CreateBy],[Semister]) VALUES ('" + subjectname + "','" + Email + "','" + Number + "','" + DepartmentID + "','" + CourseID + "','" + Classes + "','" + sessionyear + "','" + password + "'," + Session["AccountID"] + ",'" + semiste + "')";
                                                     SqlCommand sqlCommand = new SqlCommand(insert, sqlConnection);

@@ -10,6 +10,8 @@ namespace Attendance_management_system.Principal
 {
     public partial class principal : System.Web.UI.MasterPage
     {
+        private static readonly string connections = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
@@ -23,7 +25,7 @@ namespace Attendance_management_system.Principal
 
         private void ShowName()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connections);
             sqlConnection.Open();
             string GetNameQ = "select name from TeacherstaffDetail where id=" + Session["AccountID"];
             SqlCommand cmd = new SqlCommand(GetNameQ, sqlConnection);

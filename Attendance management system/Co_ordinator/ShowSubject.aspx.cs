@@ -6,6 +6,8 @@ namespace Attendance_management_system.Co_ordinator
 {
     public partial class ShowSubject : System.Web.UI.Page
     {
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
@@ -19,7 +21,7 @@ namespace Attendance_management_system.Co_ordinator
 
         private void SetDataInGridView()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = @"SELECT 
                 n.id,
@@ -51,8 +53,6 @@ namespace Attendance_management_system.Co_ordinator
                 GridView1.DataSource = dataTable;
                 GridView1.DataBind();
             }
-
-
         }
     }
 }

@@ -116,6 +116,7 @@
     <Content Include="Co_ordinator\TakeAttendance.aspx" />
     <Content Include="Co_ordinator\ViewNotification.aspx" />
     <Content Include="CSS\LoginPage.css" />
+    <Content Include="DatabaseSchema.sql" />
     <Content Include="Default.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="HOD\AllAttendance.aspx" />
@@ -603,6 +604,7 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="HOD\HOD.Master" />
     <Content Include="Co_ordinator\Co_ordinator.Master" />
+    <Content Include="DATABASE_SETUP_GUIDE.md" />
     <None Include="packages.config" />
     <Content Include="Principal\principal.Master" />
     <Content Include="Scripts\bootstrap.min.js.map" />

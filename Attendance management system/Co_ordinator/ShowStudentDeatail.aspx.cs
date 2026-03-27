@@ -14,7 +14,8 @@ namespace Attendance_management_system.Co_ordinator
     {
         string _departmentName = "";
         string _Name = "";
-        string _CourseName = "";
+        string _CourseName = ""; private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
@@ -30,7 +31,7 @@ namespace Attendance_management_system.Co_ordinator
 
         private void GetCourseInfo()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select CourseName from CourseDeatil where Co_ordinator='" + _Name + "'";
             SqlCommand sqlCommand = new SqlCommand(s, sqlConnection);
@@ -44,7 +45,7 @@ namespace Attendance_management_system.Co_ordinator
 
         private void GetDepartmentINfo()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "select name,DepatmentName from TeacherstaffDetail where id=" + Session["AccountID"];
             SqlCommand cmd = new SqlCommand(s, sqlConnection);
@@ -59,7 +60,7 @@ namespace Attendance_management_system.Co_ordinator
 
         private void GetData()
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             string s = "  select n.id,\r\n\t\tn.studentName,\r\n\t\tn.StudentEmail,\r\n\t\tn.StudentContactNumber,\r\n\t\tt.DepartmentName,\r\n\t\tp.CourseName,\r\n\t\tn.StudentClass,\r\n\t\tn.Semister,\r\n\t\tn.StudentSeesionYear,\r\n\t\tn.StudentPassword\r\n\t\tfrom StudentDetails n \r\n\t\tjoin \r\n\t\tDepartmentDetail t on n.StudentDepartment = t.id \r\n\t\tjoin \r\n\t\tCourseDeatil p on n.StudentCourse = p.id WHERE n.CreateBy = '" + Session["AccountID"] + "'";
             SqlDataAdapter adapter = new SqlDataAdapter(s, sqlConnection);

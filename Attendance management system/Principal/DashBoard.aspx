@@ -110,7 +110,7 @@
                     </asp:GridView>
 
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server"
-                        ConnectionString='<%$ ConnectionStrings:AMSConnectionString %>'
+                        ConnectionString='<%$ ConnectionStrings:AMSConnectionString1 %>'
                         SelectCommand="SELECT [NotificationTitle] FROM [Notification] WHERE (([Notofication_To] = @Notofication_To) OR ([Notofication_To] = @Notofication_To2) OR ([Notofication_To] = @Notofication_To3) OR ([Notofication_To] = @Notofication_To4) OR ([Notofication_To] = @Notofication_To5))">
                         <SelectParameters>
                             <asp:Parameter DefaultValue="All (HOD,Teacher,Co-ordinator, Student)" Name="Notofication_To"

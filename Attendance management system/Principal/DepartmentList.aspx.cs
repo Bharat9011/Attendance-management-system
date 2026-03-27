@@ -10,6 +10,7 @@ namespace Attendance_management_system.Principal
 {
     public partial class DepartmentList_aspx : System.Web.UI.Page
     {
+        private static readonly string connection = System.Configuration.ConfigurationManager.ConnectionStrings["AMSConnectionString1"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AccountID"] == null)
@@ -38,7 +39,7 @@ namespace Attendance_management_system.Principal
 
             string deleting = "delete from DepartmentDetail where id='" + id.Text + "'";
 
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = deleting;
@@ -65,7 +66,7 @@ namespace Attendance_management_system.Principal
 
             string update = "Update DepartmentDetail set [DepartmentName] = '" + name.Text + "' where id=" + id.Text;
 
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=SHRIKHRISHNA\SQLEXPRESS;Initial Catalog=AMS;Integrated Security=True;");
+            SqlConnection sqlConnection = new SqlConnection(connection);
             sqlConnection.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = update;
